@@ -1,0 +1,45 @@
+:root{--gff-indicadores-divisas__color-border:#b3bdd1;--gff-indicadores-divisas__color-primary:#00429c;--gff-indicadores-divisas__color-secondary:#d9e9ff;--gff-indicadores-divisas__color-hover-one:#c8e0ff;--gff-indicadores-divisas__color-hover-two:#ebf3ff;--gff-indicadores-divisas__color-icon:#0058cb}
+.gff-indicadores-divisas-v1__component{max-width:1120px;margin:56px auto}
+.gff-indicadores-divisas-v1__container{background-color:white;border:1px solid var(--gff-indicadores-divisas__color-border);border-radius:16px;display:flex;align-items:center;padding:24px}
+.gff-indicadores-divisas-v1__section{flex:33% 0 0}
+.gff-indicadores-divisas-v1__section-right{display:contents}
+.gff-indicadores-divisas-v1__title{display:flex;align-items:center;font-size:28px;font-weight:bold;color:var(--gff-indicadores-divisas__color-primary);gap:16px}
+.gff-indicadores-divisas-v1__title p{display:flex;flex-direction:column;line-height:30px}
+.gff-indicadores-divisas-v1__date{font-size:12px;font-weight:300}
+.gff-indicadores-divisas-v1__title-icon{width:48px;height:48px}
+.gff-indicadores-divisas-v1__title-icon img{width:100%;height:100%}
+.gff-indicadores-divisas-v1__divisa{width:fit-content;height:45px;display:flex;background:var(--gff-indicadores-divisas__color-secondary);border-radius:12px;color:var(--gff-indicadores-divisas__color-primary);font-weight:bold;padding:5px}
+.gff-indicadores-divisas-v1__divisa-activa{background:white;border-radius:12px}
+.gff-indicadores-divisas-v1__divisa-activa:hover{background:white !important;border-radius:12px}
+.gff-indicadores-divisas-v1__divisa-uno,.gff-indicadores-divisas-v1__divisa-dos{cursor:pointer;display:flex;align-items:center;padding:5px 10px 5px 5px;-webkit-tap-highlight-color:transparent}
+.gff-indicadores-divisas-v1__divisa-uno:hover,.gff-indicadores-divisas-v1__divisa-dos:hover{background:var(--gff-indicadores-divisas__color-hover-one);border-radius:12px}
+.gff-indicadores-divisas-v1__divisa-uno img,.gff-indicadores-divisas-v1__divisa-dos img{width:18px;height:18px;margin:0 10px}
+.gff-indicadores-divisas-v1__values{display:flex;justify-content:space-between !important;gap:inherit !important;font-size:20px;color:var(--gff-indicadores-divisas__color-primary);margin-bottom:12px}
+.gff-indicadores-divisas-v1__buys-value,.gff-indicadores-divisas-v1__sale-value{font-size:32px;font-weight:bold;display:block}
+.gff-indicadores-divisas-v1__info a{color:var(--gff-indicadores-divisas__color-icon);font-weight:bold;display:flex;gap:5px;align-items:center;margin-top:8px;-webkit-tap-highlight-color:transparent}
+.indicator-divisa-container{display:none}
+.current-value-active{display:block}
+@media only screen and (max-width:1120px){.gff-indicadores-divisas-v1__component{margin:24px 32px}
+}
+@media only screen and (max-width:950px){.gff-indicadores-divisas-v1__container{gap:24px}
+.gff-indicadores-divisas-v1__section-right{display:flex;flex-direction:column;gap:20px;width:55% !important}
+.gff-indicadores-divisas-v1__section{flex:auto}
+.gff-indicadores-divisas-v1__values{justify-content:start !important;gap:72px !important}
+.gff-indicadores-divisas-v1__buys-value,.gff-indicadores-divisas-v1__sale-value{font-size:28px !important;line-height:34px !important;letter-spacing:-1px !important}
+}
+@media only screen and (max-width:730px){.gff-indicadores-divisas-v1__values{justify-content:space-between !important;gap:inherit !important;text-wrap:nowrap}
+}
+@media only screen and (max-width:706px){.gff-indicadores-divisas-v1__component{margin:24px 20px}
+}
+@media only screen and (max-width:682px){.gff-indicadores-divisas-v1__container{padding:24px 16px}
+}
+@media only screen and (max-width:650px){.gff-indicadores-divisas-v1__container{flex-direction:column;align-items:flex-start}
+.gff-indicadores-divisas-v1__component{margin:24px 16px}
+.gff-indicadores-divisas-v1__title-icon{width:32px;height:32px}
+.gff-indicadores-divisas-v1__title p{font-size:22px !important;line-height:28px !important}
+.gff-indicadores-divisas-v1__section-right{width:100% !important}
+.gff-indicadores-divisas-v1__values{justify-content:start !important;gap:34px !important}
+.gff-indicadores-divisas-v1__info a{margin-top:12px}
+}
+@media only screen and (max-width:343px){.gff-indicadores-divisas-v1__values{gap:20px !important}
+}

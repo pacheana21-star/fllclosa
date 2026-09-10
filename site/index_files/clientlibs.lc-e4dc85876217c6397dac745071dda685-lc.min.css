@@ -1,0 +1,72 @@
+:root{--Theme-Fill-Primary:#00429c;--Theme-Text-On-Brand:#fff;--Theme-Stroke-Neutral-Variant:#b3bdd1;--Fic-Brand-Text-On-Secondary-Container:#068}
+.gff-footer{background-color:var(--Theme-Fill-Primary);color:var(--Theme-Text-On-Brand);width:100%}
+.gff-footer__container{max-width:1120px;margin:32px auto;-webkit-tap-highlight-color:transparent}
+.gff-footer__top{display:flex;justify-content:space-between;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--Theme-Stroke-Neutral-Variant)}
+.gff-footer__country-language{display:flex;width:100%;justify-content:space-between;font-weight:600;font-size:16px;line-height:24px}
+.gff-footer__country{padding-left:30.5px}
+.gff-footer__country img{margin-right:16px}
+.gff-footer__expand-more{margin-left:6px}
+.gff-footer__country,.gff-footer__language{cursor:pointer;display:flex;align-items:center}
+.gff-footer__dropdown{position:relative}
+.gff-footer__dropdown-content{display:none;position:absolute;background-color:white;color:#151d2c;z-index:1;border-radius:8px;width:-webkit-fill-available}
+.gff-footer__dropdown-content div:not(:first-child):hover{background-color:#151D2C14}
+.gff-footer__transform-arrow{transform:rotate(180deg);transition:transform .3s ease}
+.gff-footer__dropdown-content div{padding:12px 16px;cursor:pointer;display:flex;align-items:center}
+.gff-footer__dropdown-content div:last-child{border-radius:8px}
+.gff-footer__dropdown-content div:first-child{color:var(--Fic-Brand-Text-On-Secondary-Container);background-color:#ebfafc;border-radius:8px 8px 0 0}
+.gff-footer__dropdown-content-variation{transform:translateY(-100%);margin-top:-30px;z-index:9999}
+.gff-footer__country-link{display:flex;align-items:center;text-decoration:none;color:#151d2c;font-weight:400;font-size:16px;line-height:24px;letter-spacing:-0.5px}
+.gff-footer__country-link img{width:18px;height:14px}
+.gff-footer__language-link{display:flex;align-items:center;text-decoration:none;color:var(--Theme-Text-On-Brand);padding-right:16px;gap:16px;font-size:16px;line-height:24px;font-weight:600}
+.gff-footer__country-text{margin-left:10px;text-wrap:nowrap}
+.gff-footer__social-icons{margin-top:14px}
+.gff-footer__middle{display:flex;justify-content:space-between;flex-wrap:wrap;border-bottom:1px solid var(--Theme-Stroke-Neutral-Variant)}
+.gff-footer__section{flex:1;margin-top:16px}
+.gff-footer__title{font-weight:700;font-size:16px;line-height:24px;letter-spacing:-0.5px;margin:0;padding:8px 0;color:var(--Theme-Text-On-Brand)}
+.gff-footer__title-mobile-no-icon{padding:0}
+.gff-footer__list{list-style:none;padding:0;margin:0;margin-top:8px}
+.gff-footer__item{font-weight:400;font-size:16px;line-height:24px;letter-spacing:-0.5px;margin-bottom:16px;color:var(--Theme-Text-On-Brand)}
+.gff-footer__item a{text-decoration:none;color:var(--Theme-Text-On-Brand)}
+.gff-footer__item a:hover{opacity:.75}
+.gff-footer__button-link{text-decoration:none;display:contents;width:fit-content}
+.gff-footer__button{background-color:transparent;color:var(--Theme-Text-On-Brand);border:1px solid var(--Theme-Stroke-Neutral-Variant);padding:8px 20px;cursor:pointer;border-radius:8px;font-weight:700;display:flex;align-items:center;font-size:14px;margin-bottom:18px;line-height:20px}
+.gff-footer__button:hover{background-color:rgba(255,255,255,0.08)}
+.gff-footer__button img{margin-left:8px}
+.gff-footer__social-icons{display:flex;gap:10px}
+.gff-footer__icon{cursor:pointer}
+.gff-footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:16px 0;align-items:end}
+.gff-footer__logo{padding:15.75px 14px 14px 14px}
+.gff-footer__links{display:flex;gap:15px;padding:15.75px 14px 14px 14px}
+.gff-footer__links a{text-decoration:none;color:var(--Theme-Text-On-Brand);font-weight:600;font-size:16px;line-height:24px}
+.gff-footer__link{cursor:pointer}
+.gff-footer__link span:hover{opacity:.75}
+.gff-footer__link:not(:last-child)::after{content:"|";position:relative;left:8px}
+.gff-footer__copyright{margin-top:10px;font-size:12px;font-weight:400;line-height:18px;color:var(--Theme-Text-On-Brand)}
+.cmp-link__screen-reader-only,.gff-footer__links-mobile{display:none}
+.gff-footer__links-variation-corp{display:none}
+@media(max-width:1024px){.gff-footer__middle{flex-direction:column}
+.gff-footer__title{cursor:pointer;position:relative}
+.gff-footer__title::after{content:url("../../../../content/dam/grupo-ficohsa-site/iconos/footer/expand_more.svg");position:absolute;right:0}
+.gff-footer__title.active-footer::after{content:url("../../../../content/dam/grupo-ficohsa-site/iconos/footer/expand_more.svg");transform:rotate(180deg);transition:transform .3s ease}
+.gff-footer__title-mobile-no-icon::after{content:none}
+.gff-footer__list{display:none}
+.gff-footer__title.active-footer+.gff-footer__list{border-bottom:1px solid var(--Theme-Stroke-Neutral-Variant);display:block;padding:0 16px}
+.gff-footer__copyright{text-align:center}
+.gff-footer__title-mobile{text-align:center}
+.gff-footer__social-icons{justify-content:center;padding-bottom:16px}
+.gff-footer__bottom{justify-content:center;padding-bottom:17px;border-bottom:1px solid var(--Theme-Stroke-Neutral-Variant)}
+.gff-footer__bottom-variation{flex-direction:column;align-items:center}
+.gff-footer__container{margin:32px}
+.gff-footer__link:not(:last-child)::after{display:none}
+.gff-footer__links-mobile-hidden{display:none}
+.gff-footer__links-mobile{display:flex;flex-direction:column;padding:0;padding-bottom:16px}
+.gff-footer__links-variation{display:block}
+.gff-footer__button{margin-left:16px}
+.gff-footer__link:not(:last-child)::after{left:3px}
+}
+@media(max-width:767px){.gff-footer__bottom-variation{flex-direction:column-reverse;padding-bottom:0;margin-top:0}
+.gff-footer__container{margin:16px}
+.gff-footer__bottom-variation div{padding:30px 0}
+.gff-footer__links-variation{display:flex;flex-direction:column;width:100%;padding:0;padding-bottom:16px;border-bottom:1px solid var(--Theme-Stroke-Neutral-Variant)}
+.gff-footer__link::after{content:"" !important}
+}

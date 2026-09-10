@@ -1,0 +1,20 @@
+.gff-help-block{background-color:#e2f3ff;max-width:100%}
+.gff-help-block__container{display:flex;justify-content:space-between;align-items:center;gap:32px;max-width:1120px;margin:0 auto;padding:56px 0;-webkit-tap-highlight-color:transparent}
+.gff-help-block__left,.gff-help-block__right{flex:1;width:100%}
+.gff-help-block__title{font-weight:var(--font-weight-medium);color:var(--text-light-brand-high-emphasis);padding-bottom:4px}
+.gff-help-block__description{color:var(--text-light-brand-high-emphasis);margin-bottom:16px;width:455px;font-weight:400}
+.gff-help-block__button{display:inline-block;padding:12px 24px;background-color:#00429c;color:#f8fbff;text-decoration:none;border-radius:8px;font-weight:700;font-size:16px;line-height:24px;letter-spacing:.5px}
+.gff-help-block__button:hover{background-color:#1451a4}
+.gff-help-block__button:active{background-color:#073778}
+.gff-help-block__faq-title{font-size:20px;font-weight:600;color:#384868;margin:0;margin-bottom:16px;line-height:26px;letter-spacing:-1px}
+.gff-help-block__faq-list{list-style:none;padding:0;margin:0}
+.gff-help-block__faq-item{margin-bottom:16px}
+.gff-help-block__faq-item a{display:flex;justify-content:space-between;padding:12px 16px;background-color:#fff;color:#151d2c;text-decoration:none;border-radius:8px;font-size:16px;line-height:24px;letter-spacing:-0.5px;cursor:pointer}
+.gff-help-block__faq-item a:hover{background-color:#ededee}
+@media(max-width:1020px){.gff-help-block__container{padding:24px 32px;align-items:center}
+.gff-help-block__description{font-size:16px}
+.gff-help-block__description{width:auto}
+}
+@media(max-width:600px){.gff-help-block__container{flex-direction:column;padding:24px 16px}
+.gff-help-block__faq-title{font-size:18px}
+}

@@ -1,0 +1,68 @@
+p,h2{margin:0}
+.gff-bloque_cards-bullets{display:none}
+.gff-bloque-cards{background-color:#eff3fb}
+.gff-bloque_cards{display:grid;grid-template-columns:0fr 1fr;grid-template-rows:repeat(2,auto);gap:32px;row-gap:24px;width:1140px;height:548px;margin:0 auto}
+.gff-bloque_cards-card:first-child{grid-column:1;grid-row:span 2;height:548px;width:384px;border-radius:16px;display:flex;flex-direction:column;background-color:white}
+.gff-bloque_cards-card{grid-column:2;background-color:white;width:100%;height:100%;display:flex}
+.gff-bloque_cards-card:first-child img{width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0}
+.gff-bloque-cards .gff-bloque_cards .gff-bloque_cards-card:nth-child(n+2) .gff-bloque_cards-card_img img{height:262px}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_tag{margin-top:24px}
+.gff-bloque_cards-card_tag{width:fit-content;padding:0 24px;height:26px;border-radius:8px;background-color:#eff3fb;font-size:14px;color:#384868;display:flex;align-items:center;justify-content:center;margin:16px}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_content{margin:0 16px 16px}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_img{width:100%;height:216px}
+.gff-bloque_cards-card_buttons{margin-bottom:24px !important}
+.gff-bloque_cards-card_buttons div{-webkit-tap-highlight-color:transparent}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_buttons{width:352px;display:flex;flex-direction:column;gap:16px;margin:auto}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_buttons-one{width:100%;padding:0}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_buttons-two{width:100%;padding:0}
+.gff-bloque_cards-card_buttons-one{width:fit-content;height:48px;background-color:#00429c;color:white;font-weight:700;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.gff-bloque_cards-card_buttons-one:hover{background-color:#1451a4}
+.gff-bloque_cards-card_buttons-one:active{background-color:#073678}
+.gff-bloque_cards-card_buttons-two:hover{background-color:#ebf4ff}
+.gff-bloque_cards-card_buttons-two:active{background-color:#add1fe}
+.gff-bloque_cards-card_buttons-two{width:fit-content;height:44px !important;background-color:transparent;color:#00429c;border:2px solid #006ffd;font-weight:700;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.gff-bloque_cards-card{display:grid;grid-template-columns:0fr 1fr;grid-template-rows:50px auto;border-radius:16px}
+.gff-bloque_cards-card img{border-radius:16px 0 0 16px}
+.gff-bloque_cards-card .gff-bloque_cards-card_img{grid-column:1;grid-row:1 / span 3;width:229px;height:262px}
+.gff-bloque_cards-card .gff-bloque_cards-card_img img{width:100%;height:100%;object-fit:cover}
+.gff-bloque_cards-card .gff-bloque_cards-card_tag,.gff-bloque_cards-card .gff-bloque_cards-card_content,.gff-bloque_cards-card .gff-bloque_cards-card_buttons{grid-column:2}
+.gff-bloque_cards-card_content h4{color:#151d2c;margin-bottom:16px;margin-top:0}
+.gff-bloque_cards-card_content p{color:#384868}
+.gff-bloque_cards-card .gff-bloque_cards-card_tag{grid-row:1}
+.gff-bloque_cards-card .gff-bloque_cards-card_content{grid-row:2;margin:0 16px}
+.gff-bloque_cards-card .gff-bloque_cards-card_buttons{grid-row:3;display:flex;gap:16px;margin:auto 16px}
+.gff-bloque_cards-card .gff-bloque_cards-card_buttons-one,.gff-bloque_cards-card .gff-bloque_cards-card_buttons-two{padding:0 42px}
+.gff-bloque-cards-title{font-weight:var(--font-weight-medium);color:var(--text-light-brand-high-emphasis);margin:0 auto;max-width:1120px;margin-top:56px;margin-bottom:32px}
+.gff-bloque_cards-card_buttons a{text-decoration:none}
+@media(max-width:1024px){.gff-bloque-cards{overflow:hidden;position:relative}
+.gff-bloque_cards{display:flex;height:fit-content;transition:all .5s;padding:0 32px !important;gap:16px}
+.gff-bloque_cards-card:first-child{height:auto}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_tag{margin-top:16px}
+.gff-bloque_cards-card{grid-column:1;grid-row:span 2;height:auto;width:320px !important;border-radius:16px;display:flex;flex-direction:column;background-color:white}
+.gff-bloque_cards-card img{width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0}
+.gff-bloque_cards-card .gff-bloque_cards-card_content{margin:0 16px 16px}
+.gff-bloque_cards-card .gff-bloque_cards-card_img{width:100%;height:180px !important}
+.gff-bloque_cards-card .gff-bloque_cards-card_buttons{width:288px;display:flex;flex-direction:column;gap:16px;margin:0 auto 24px;margin-top:auto}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_buttons-two,.gff-bloque_cards-card:first-child .gff-bloque_cards-card_buttons-one{width:288px}
+.gff-bloque_cards-card:first-child:first-child .gff-bloque_cards-card_buttons{margin:0 auto 24px;margin-top:auto;width:288px}
+.gff-bloque_cards-card .gff-bloque_cards-card_buttons-one{width:100%;padding:0}
+.gff-bloque_cards-card .gff-bloque_cards-card_buttons-two{width:100%;padding:0}
+.gff-bloque_cards-bullets-button{width:8px;height:8px;border-radius:50%;background-color:#78a5e3;transition:all .5s}
+.gff-bloque_cards-bullets{display:flex;gap:8px;width:fit-content;margin:24px auto}
+.gff-bloque_cards-bullets-button-active{width:24px;height:8px;border-radius:8px;background-color:#0058cb}
+.gff-bloque-cards-title{padding:0 32px;margin-top:24px;margin-bottom:24px;font-size:28px}
+.gff-bloque-cards .gff-bloque_cards .gff-bloque_cards-card:nth-child(n+2) .gff-bloque_cards-card_img img{height:100% !important}
+}
+@media(max-width:1024px) and (min-width:768px){.gff-bloque_cards-bullets-button:last-child{display:none}
+}
+@media(max-width:767px){.gff-bloque_cards-card{width:286px !important;height:auto}
+.gff-bloque_cards-card_buttons{width:254px !important}
+.gff-bloque_cards-card:first-child .gff-bloque_cards-card_buttons-two,.gff-bloque_cards-card:first-child .gff-bloque_cards-card_buttons-one{width:254px !important}
+.gff-bloque-cards .gff-bloque_cards .gff-bloque_cards-card .gff-bloque_cards-card_content p{font-size:14px;line-height:20px;font-weight:400;color:#384868}
+.gff-bloque_cards-card .gff-bloque_cards-card_img{height:160px !important}
+}
+@media(max-width:600px){.gff-bloque_cards{padding:0 16px !important;gap:16px}
+.gff-bloque_cards-card .gff-bloque_cards-card_buttons-one{height:36px}
+.gff-bloque_cards-card .gff-bloque_cards-card_buttons-two{height:32px !important}
+.gff-bloque-cards-title{padding:0 16px;font-size:22px;line-height:28px}
+}

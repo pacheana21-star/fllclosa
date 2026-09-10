@@ -1,0 +1,109 @@
+:root{--color-primary:#384868;--color-secondary:#d9e9ff}
+.cmp-gff-banner_disfruta{padding:56px 0;background-size:contain !important;max-width:1120px;background-position:bottom;background-repeat:no-repeat;background-position:bottom}
+.cmp-gff-banner_disfruta-ampliada{padding:59px 0;width:100%;border-radius:0 !important;max-width:none}
+.cmp-gff-banner_disfruta-content{width:100%;max-width:1120px;margin:0 auto;padding-left:64px}
+.cmp-gff-banner_disfruta-ampliada .cmp-gff-banner_disfruta-content{padding-left:0}
+.cmp-gff-banner_disfruta-content-tagline{background-color:white;padding:4px 16px;color:#002d6f;border-radius:8px;font-size:11px;font-weight:600;text-transform:uppercase;line-height:16px;display:inline-block;letter-spacing:.5px}
+.cmp-gff-banner_disfruta-content-title{font-weight:800;color:#002d6f;margin:12px 0 8px;max-width:100%;letter-spacing:-0.5px;line-height:32px;font-size:26px}
+.cmp-gff-banner_disfruta-blanca .cmp-gff-banner_disfruta-content-title{color:#fff}
+.cmp-gff-banner_disfruta-content-description{font-size:14px;color:#384868;margin:0;max-width:100%;line-height:20px;opacity:.9}
+.cmp-gff-banner_disfruta-blanca .cmp-gff-banner_disfruta-content-description{color:#fff}
+.cmp-gff-banner_disfruta-buttons{display:flex;gap:12px;margin-top:16px}
+.cmp-gff-banner_disfruta-buttons_button-style{padding:10px 20px;border-radius:8px;display:flex;justify-content:center;align-items:center;line-height:20px;letter-spacing:0;font-weight:700;font-size:14px;width:auto !important;-webkit-tap-highlight-color:transparent}
+.cmp-gff-banner_disfruta-buttons_button-style.has-icon{padding:12px 16px 12px 24px}
+.cmp-gff-banner_disfruta-buttons_button-style a{text-decoration:none;-webkit-tap-highlight-color:transparent}
+.cmp-gff-banner_disfruta-buttons_button-one{background-color:#00429c;font-weight:bold;cursor:pointer}
+.cmp-gff-banner_disfruta-buttons_button-one.outlined{background-color:transparent !important;border:2px solid #006ffd;color:#00429c}
+.cmp-gff-banner_disfruta-buttons_button-one.outlined a{color:#00429c}
+.cmp-gff-banner_disfruta-buttons_button-one.outlined:hover{background-color:#006FFD14 !important}
+.cmp-gff-banner_disfruta-buttons_button-one.outlined:active{background-color:#006FFD52 !important}
+.cmp-gff-banner_disfruta-buttons_button-one.variant{background-color:#fff !important}
+.cmp-gff-banner_disfruta-buttons_button-one.variant a{color:#00429c}
+.cmp-gff-banner_disfruta-buttons_button-one.variant:hover{background-color:#ebf4ff !important}
+.cmp-gff-banner_disfruta-buttons_button-one.variant:active{background-color:#add1fe !important}
+.cmp-gff-banner_disfruta-buttons_button-one.premier{background-color:#0a335c !important}
+.cmp-gff-banner_disfruta-buttons_button-one.premier a{color:#f8fbff}
+.cmp-gff-banner_disfruta-buttons_button-one.premier:hover{background-color:#1e4369 !important}
+.cmp-gff-banner_disfruta-buttons_button-one img,.cmp-gff-banner_disfruta-button-icon{width:18px;height:18px;flex-shrink:0}
+.cmp-gff-banner_disfruta-buttons_button-one a{color:#f8fbff;display:flex;align-items:center;gap:8px;flex-direction:row;text-decoration:none}
+.cmp-gff-banner_disfruta-buttons_button-one a span{order:1}
+.cmp-gff-banner_disfruta-button-icon{order:2}
+.cmp-gff-banner_disfruta-blanca .cmp-gff-banner_disfruta-buttons_button-one{background-color:#fff !important;font-weight:bold;cursor:pointer}
+.cmp-gff-banner_disfruta-buttons_button-one.cmp-gff-banner_disfruta-buttons_button-style:hover{background-color:#1451a4}
+.cmp-gff-banner_disfruta-buttons_button-one.cmp-gff-banner_disfruta-buttons_button-style:active{background-color:#073678}
+.cmp-gff-banner_disfruta-blanca .cmp-gff-banner_disfruta-buttons_button-one.cmp-gff-banner_disfruta-buttons_button-style:hover{background-color:#ebf4ff !important}
+.cmp-gff-banner_disfruta-blanca .cmp-gff-banner_disfruta-buttons_button-one.cmp-gff-banner_disfruta-buttons_button-style:active{background-color:#add1fe !important}
+.cmp-gff-banner_disfruta-blanca .cmp-gff-banner_disfruta-buttons_button-one a{color:#00429c}
+.cmp-gff-banner_disfruta-buttons_button-two{background-color:transparent;border:2px solid #006ffd;cursor:pointer;font-weight:bold;display:flex !important}
+.cmp-gff-banner_disfruta-buttons_button-two:hover{background:#006FFD14}
+.cmp-gff-banner_disfruta-buttons_button-two:active{background:#006FFD52}
+.cmp-gff-banner_disfruta-buttons_button-two-blanco:hover{background:0}
+.cmp-gff-banner_disfruta-buttons_button-two-blanco:active{background:0}
+.cmp-gff-banner_disfruta-buttons_button-two-blanco{border:2px solid #fff}
+.cmp-gff-banner_disfruta-buttons_button-two-blanco a{color:#fff !important}
+.cmp-gff-banner_disfruta-buttons_button-two a{color:#00429c}
+.cmp-gff-banner_disfruta-border-radius{border-radius:16px}
+@media only screen and (max-width:750px){.cmp-gff-banner_disfruta{padding:16px;background-size:250% !important;background-position:90% 15%;background-repeat:no-repeat;background-color:var(--color-secondary);height:400px;width:-webkit-fill-available;margin:0 16px !important}
+.cmp-gff-banner_disfruta-ampliada{padding:16px !important;margin:0 !important}
+.cmp-gff-banner_disfruta-content{margin:0 auto;padding-left:0}
+.cmp-gff-banner_disfruta-content-description{line-height:24px;font-size:16px}
+.cmp-gff-banner_disfruta-content-title{font-size:24px !important;line-height:28px !important;margin:70% 0 4px}
+.cmp-gff-banner_disfruta-content-description{font-size:14px;line-height:19.6px}
+.cmp-gff-banner_disfruta-buttons{flex-direction:column}
+.cmp-gff-banner_disfruta-buttons_button-one,.cmp-gff-banner_disfruta-buttons_button-two{width:auto}
+}
+@media only screen and (min-width:750px) and (max-width:1024px){.cmp-gff-banner_disfruta-content{margin:0;max-width:328px;padding-left:0}
+.cmp-gff-banner_disfruta{padding:42px 32px 40px 32px;background-size:150% !important;background-position:72% center;background-repeat:no-repeat;background-position:bottom}
+.cmp-gff-banner_disfruta-content-title{font-size:24px !important;line-height:28px !important;width:350px}
+.cmp-gff-banner_disfruta-content-description{max-width:360px}
+.cmp-gff-banner_disfruta-content-description{width:450px}
+}
+@media only screen and (max-width:1184px){.cmp-gff-banner_disfruta{margin:0 32px}
+}
+@media only screen and (max-width:1019px){.cmp-gff-banner_disfruta-ampliada{width:-webkit-fill-available;border-radius:16px !important;padding:50px 32px}
+}
+@media only screen and (max-width:600px){.cmp-gff-banner_disfruta-ampliada{margin:0}
+.cmp-gff-banner_disfruta-ampliada{border-radius:0 !important}
+}
+.cmp-gff-banner_disfruta-slide{position:relative;width:100%;max-width:100%;margin:0;padding:0}
+.cmp-gff-banner_disfruta-slide-wrapper{position:relative;width:100%;margin:0 auto;padding:0;overflow:hidden}
+.cmp-gff-banner_disfruta-slide-container{display:flex;transition:transform .5s ease;will-change:transform}
+.cmp-gff-banner_disfruta-slide-item{flex-shrink:0;width:100%;padding:56px 120px;background-size:contain !important;background-position:bottom;background-repeat:no-repeat;min-height:286px;display:flex;align-items:center;border-radius:16px;position:relative;box-sizing:border-box}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content{width:100%;padding-left:0;margin-right:auto;display:flex;flex-direction:column;gap:16px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content-tagline{padding:4px 24px;font-size:12px;color:#384868;line-height:18px;font-weight:400;display:inline-block;align-self:flex-start;width:auto}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content-title{font-size:28px;font-weight:800;line-height:34px;color:#00429c;margin:0;padding-bottom:8px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content-description{font-size:16px;line-height:22.4px;color:#00429c;padding-bottom:4px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-buttons{gap:16px;margin-top:0}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-buttons_button-style{font-size:16px;line-height:24px;font-weight:700}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-buttons_button-one{min-width:156px;padding:12px 16px 12px 24px}
+.cmp-gff-banner_disfruta-slide-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background-color:#fff;border:0;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.cmp-gff-banner_disfruta-slide-nav:hover{background-color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.cmp-gff-banner_disfruta-slide-nav--prev{left:42px}
+.cmp-gff-banner_disfruta-slide-nav--next{right:42px}
+.cmp-gff-banner_disfruta-slide-nav svg{color:#0058cb;width:24px;height:24px}
+.cmp-gff-banner_disfruta-slide-indicators{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;gap:8px;padding:4px;background:rgba(255,255,255,0.60);border-radius:100px;z-index:20}
+.cmp-gff-banner_disfruta-slide-indicator{width:8px;height:8px;border-radius:9999px;background-color:#a1aec8;opacity:.5;cursor:pointer;transition:all .3s ease;border:0;padding:0}
+.cmp-gff-banner_disfruta-slide-indicator.active{width:24px;border-radius:100px;background-color:#00429c;opacity:1}
+.cmp-gff-banner_disfruta-slide-indicator:hover{background-color:#a1aec8}
+@media only screen and (min-width:750px) and (max-width:1024px){.cmp-gff-banner_disfruta-slide-nav{display:none}
+.cmp-gff-banner_disfruta-slide-item{padding:58px 32px;background-size:150% !important;background-position:72% center;background-repeat:no-repeat;background-position:bottom;min-height:318px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content{max-width:360px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content-title{font-size:28px !important;line-height:34px !important}
+}
+@media only screen and (max-width:749px){.cmp-gff-banner_disfruta-slide-nav{display:none}
+.cmp-gff-banner_disfruta-slide-item{padding:16px;background-size:250% !important;background-position:90% 80px;background-repeat:no-repeat;min-height:517px;align-items:flex-end;justify-content:center}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content{max-width:328px;width:100%;align-items:flex-start;gap:8px;padding-top:340px;padding-bottom:40px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content-tagline{position:absolute;top:16px;left:16px;max-width:calc(100% - 32px);box-sizing:border-box}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content-title{font-size:24px !important;line-height:28px !important;margin:0 0 4px 0;padding-bottom:4px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-content-description{font-size:16px;line-height:22.4px;padding-bottom:4px}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-buttons{flex-direction:column;width:100%;gap:0;margin-top:0}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-buttons_button-one{width:100%}
+.cmp-gff-banner_disfruta-slide-item .cmp-gff-banner_disfruta-buttons_button-one a{width:100%;justify-content:center}
+.cmp-gff-banner_disfruta-slide-indicators{bottom:16px}
+}
+.cmp-gff-banner_disfruta-content-description p{margin:0 0 8px 0}
+.cmp-gff-banner_disfruta-content-description ul,.cmp-gff-banner_disfruta-content-description ol{margin:8px 0;padding-left:20px}
+.cmp-gff-banner_disfruta-content-description li{margin-bottom:4px}
+.cmp-gff-banner_disfruta-content-description a{color:inherit;text-decoration:underline}
+.cmp-gff-banner_disfruta-content-description a:hover{text-decoration:none}
+.cmp-gff-banner_disfruta-content-description strong{font-weight:700}

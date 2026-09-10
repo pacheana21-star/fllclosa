@@ -1,0 +1,43 @@
+.mobile-screen-card-gestion{display:none}
+.gff-card-gestion{padding-inline:32px}
+.gff-card_gestion-component{background-color:var(--background-color,#d9e9ff);border-radius:8px;align-items:center;max-width:1120px;margin:0 auto;padding:0 !important}
+.gff-card_gestion-container{padding:16px;display:flex;align-items:center;justify-content:space-between;gap:8px;-webkit-tap-highlight-color:transparent}
+.gff-card-gestion-left{display:flex;gap:24px;align-items:center}
+.gff-card_gestion-component_img{padding:0 !important}
+.gff-card_gestion-component_text{padding:4px 0}
+.gff-card_gestion-component_img-icon{width:48px}
+.gff-card_gestion-component_text-title{color:#00429c;font-weight:700;font-size:18px;margin:0;line-height:26px;letter-spacing:-0.5px}
+.gff-card__gestion-title-variation{font-weight:800;font-size:20px;letter-spacing:-1px}
+.gff-card_gestion-component_text-description{color:#151d2c;font-size:16px;line-height:24px;font-weight:400;margin:0}
+.gff-card_gestion-component_button{height:auto !important;-webkit-tap-highlight-color:transparent}
+.gff-card_gestion-component_button a{text-decoration:none;border:2px solid #006ffd;border-radius:8px;display:flex;justify-content:center;align-items:center;cursor:pointer;font-weight:bold;color:#00429c;-webkit-tap-highlight-color:transparent;gap:8px;padding:12px 16px 12px 24px;text-wrap:nowrap}
+.gff-card_gestion-component_button-variation{height:auto !important;-webkit-tap-highlight-color:transparent}
+.gff-card_gestion-component_button-variation a{text-decoration:none;border-radius:8px;display:flex;background-color:#00429c;justify-content:center;align-items:center;cursor:pointer;font-weight:700;color:#f8fbff;-webkit-tap-highlight-color:transparent;gap:8px;padding:12px 24px;line-height:24px;text-wrap:nowrap}
+.gff-card_gestion-component_button-variation a:hover{background-color:#1451a4}
+.gff-card_gestion-component_button-variation a:active{background-color:#073778}
+.gff-card_gestion-component_button a:hover{background-color:#006FFD14}
+.gff-card_gestion-component_button a:active{background-color:#006FFD52}
+.gff-card_gestion-component_button img{width:7px}
+.gff-card_gestion__buttons{display:flex;align-items:center;gap:8px}
+.gff-card_gestion-component_button-variation img{width:18px;height:18px;object-fit:contain}
+.gff-cards-icon-show{display:block}
+.gff-cards-icon-hidden{display:none}
+@media(max-width:1024px){.gff-card-gestion{padding-inline:0}
+.gff-card_gestion-component{justify-content:space-around;gap:8px;margin:0 32px}
+}
+@media(max-width:767px){.mobile-screen-card-gestion{display:block}
+.desktop-screen-card-gestion{display:none}
+.gff-card_gestion-component{flex-direction:column;padding:8px !important;align-items:flex-start;gap:10px;margin:0 16px}
+.gff-card_gestion-container{padding:0;flex-direction:column;align-items:flex-start;gap:12px}
+.gff-card_gestion-component_img{display:flex;align-items:center}
+.gff-card_gestion-component_img img{width:32px !important;height:32px}
+.gff-card_gestion-component_text-title{font-size:16px}
+.gff-card_gestion-component_text{width:100%}
+.gff-card_gestion-component_text-description{line-height:20px !important;font-size:14px}
+.gff-card_gestion-component_button,.gff-card_gestion-component_button-variation{height:auto;width:100%}
+.gff-card_gestion-component_button-variation a{font-size:14px;line-height:20px;letter-spacing:0;padding:8px 0}
+.gff-card_gestion-component_button a{font-size:14px;padding:6px 0}
+.gff-card-gestion-left{flex-direction:column;gap:12px;align-items:start}
+.gff-card_gestion-component_text{padding:0}
+.gff-card_gestion__buttons{flex-direction:column;width:100%}
+}

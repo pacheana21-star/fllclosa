@@ -1,0 +1,52 @@
+.gff-card-news{width:100% !important}
+.gff-swiper-news{width:100%;height:auto;justify-content:center;display:flex;flex-direction:column}
+.gff-news-cards-container{max-width:1120px;margin:0 auto;-webkit-tap-highlight-color:transparent}
+.gff-news-cards-container .tagline-ficohsa{margin-bottom:24px}
+.gff-news-cards-title{margin-top:24px;margin-bottom:32px;font-weight:var(--font-weight-medium);color:var(--text-light-brand-high-emphasis)}
+.gff-swiper-news__wrapper{gap:32px;width:100%;margin:0 auto}
+@media screen and (min-width:1021px){.gff-swiper-news__wrapper{display:grid !important;grid-template-columns:repeat(3,1fr);gap:32px;transform:none !important}
+.gff-swiper-news__slide{width:100% !important;margin:0 !important}
+}
+.swiper-pagination-bullet{width:8px;height:8px;background-color:#b2cdef;opacity:1;border-radius:50%;margin:0 4px}
+.swiper-pagination-bullet-active{background-color:#0058cb;width:24px;height:8px;border-radius:12px}
+.gff-swiper-news__slide{display:flex;justify-content:center;align-items:center;flex-shrink:initial;height:auto}
+.gff-swiper-news__pagination{position:static;margin-top:16px;display:none}
+.gff-news-card{width:100%;height:100%;border-radius:16px;background-color:#fff;box-shadow:0 1px 3px 0 #0000002E,0 4px 8px 0 #0000000A;overflow:hidden}
+.gff-news-card__image-container{position:relative;width:100%;padding-top:56.25%;background-color:#f0f0f0}
+.gff-news-card__image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.gff-news-card__time{position:absolute;bottom:0;right:0;background-color:#e7deff;color:#351782;padding:4px 8px;border-top-left-radius:16px;font-size:14px;font-weight:bold;text-align:center;display:flex;align-items:center;gap:5px;width:81px;height:30px;justify-content:center}
+.gff-news-card__content{padding:16px;background-color:#fff}
+.gff-news-card__category{font-size:12px;color:#384868;text-transform:uppercase;margin-bottom:8px}
+.gff-news-card__title{font-size:18px;font-weight:700;line-height:26px;letter-spacing:-0.5px;color:#151d2c;margin-top:16px;margin-bottom:8px;height:auto;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;max-height:3em}
+.gff-news-card__description{font-size:14px;color:#384868;font-weight:400;line-height:20px;margin:0}
+.gff-news-card__link{color:#0058cb;text-decoration:none;display:inline-block;text-decoration:none;font-weight:600}
+.gff-swiper-news-button{text-align:center;margin-top:32px;display:flex;justify-content:center}
+.gff-swiper-news-button a{text-decoration:none}
+.gff-swiper-news-button button{background-color:#00429c;color:#f8fbff;font-size:14px;line-height:20px;border:0;padding:8px 16px 8px 24px;border-radius:8px;cursor:pointer;display:flex;gap:8px;align-items:center;font-weight:700}
+.gff-swiper-news-button button:hover{background-color:#1451a4}
+.gff-swiper-news-button button:active{background-color:#073778}
+@media screen and (max-width:1028px){.gff-news-cards-container{width:auto;padding-left:32px}
+.gff-news-cards-container .tagline-ficohsa{margin-bottom:24px}
+.gff-swiper-news-button{margin-top:24px}
+.gff-swiper-news__wrapper{gap:0}
+.gff-swiper-news__slide{flex-shrink:0;width:286px;margin-right:0 !important}
+.gff-swiper-news__slide:not(:first-child){margin-left:16px !important}
+.gff-swiper-news{display:block;overflow:hidden}
+.gff-swiper-news__pagination{display:block}
+.gff-news-card{width:286px}
+.gff-news-card__title{font-size:16px}
+.gff-news-card__description{font-size:14px}
+.gff-news-card__time{width:65px;height:25px}
+.gff-news-cards-title{font-size:22px;line-height:28px;margin-top:16px;margin-bottom:24px;padding-right:32px}
+}
+@media screen and (max-width:600px){.gff-news-cards-container{padding:0;padding-left:16px}
+.gff-news-card__title{line-height:24px;font-weight:700;letter-spacing:-0.5px;padding-right:16px}
+}
+.gff-news-cards__toggle-container{display:flex;justify-content:center;margin-top:32px}
+.gff-news-cards__toggle-btn{display:inline-flex;align-items:center;background-color:transparent;gap:4px;color:#0058cb;font-size:14px;line-height:24px;letter-spacing:-0.5px;font-weight:600;border:0;cursor:pointer}
+.gff-news-cards__toggle-text{text-decoration:underline}
+.gff-news-cards__toggle-arrow{transition:transform .3s ease}
+.gff-news-cards__slide-hidden{display:none !important}
+@media screen and (max-width:1020px){.gff-news-cards__toggle-container{display:none}
+.gff-news-cards__slide-hidden{display:flex !important}
+}

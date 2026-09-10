@@ -1,0 +1,3199 @@
+/* Parte 1: Estilos */
+
+var alanChatStyles = `
+	:root {
+			--color-accent: #34589C;
+	}
+	.alan_float_button {
+		background: var(--color-accent);
+		width: 48px;
+		height: 48px;
+		display: flex;
+		position: fixed;
+		right: 32px;
+		bottom: 32px;
+		border-radius: 50%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+	
+	.alan_float_button:hover {
+		filter: brightness(95%);
+	}
+	.alan_float_button:active {
+		filter: brightness(90%);
+	}
+	
+	
+	.alan_float_button.fab_text {
+		font-family: Arial, sans-serif;
+		bottom: 0;
+		border-radius: 12px 12px 0 0;
+		width: unset;
+		background: var(--color-accent);
+		height: 42px;
+		text-align: center;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		cursor: pointer;
+		flex-direction: row;
+		padding: 0 12px 0 16px;
+		box-sizing: border-box;
+	}
+	
+	.alan_float_button.fab_text h3 {
+		flex-grow: 1;
+		text-align: left;
+		margin: 0;
+		font-size: 14px;
+		letter-spacing: 0.5px;
+		user-select: none;
+	}
+	
+	.alan_float_button svg {
+		fill: white;
+	}
+	
+	.alan_chat_content {
+		width: 380px;
+		position: fixed;
+
+		z-index: 999999;
+		right: 32px;
+		bottom: 32px;
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0 0 50px 0 rgba(0,0,0,0.20);
+		font-family: Arial, sans-serif;
+		border-radius: 12px 12px 12px 12px;
+		transition: border-radius 0.25s ease,
+								width 0.25s ease,
+								bottom 0.25s ease;
+		overflow: hidden;
+		
+
+
+	}
+	
+	.webchat-iframe {
+		overscroll-behavior: contain; 
+		height: 620px;
+		width: 100%;
+		border: none;
+		display: block !important;
+	}
+	
+	
+	.alan_chat_header {
+		background: var(--color-accent);
+		height: 42px;
+		text-align: center;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		cursor: pointer;
+		flex-direction: row;
+		padding: 0 12px 0 16px;
+		box-sizing: border-box;
+		z-index : 9999;
+	}
+	.alan_chat_header:hover {
+		filter: brightness(95%);
+	}
+	.alan_chat_header:active {
+		filter: brightness(90%);
+	}
+	
+	.alan_chat_header h3 {
+		flex-grow: 1;
+		text-align: left;
+		margin: 0;
+		font-size: 14px;
+		letter-spacing: 0.5px;
+		user-select: none;
+	}
+	.alan_chat_header svg {
+		fill: white;
+		transition: transform 0.3s ease;
+	}
+	
+	.alan_chat_body {
+		background: white;
+		height: 620px;
+		text-align: center;
+		font-size: 11px;
+		color: white;
+		transition: height 0.25s ease;
+	
+
+
+
+	}
+	
+	.alan_chat_content.alan_chat_hide {
+		border-radius: 12px 12px 0 0;
+		bottom: 0;
+		width: 300px;  
+	}
+
+	
+	.alan_chat_hide .alan_chat_header svg {
+		transform: scaleY(-1);
+	}
+	
+	.alan_chat_hide .alan_chat_body {
+		height: 0;
+	}
+	.webchat-iframe-hide{
+		display:none !important;
+	}
+	@media (max-height: 800px) {
+		.webchat-iframe {
+				/*height: 60vh;*/
+			}
+			.alan_chat_body{
+				/*height: 50vh;*/
+			}
+	}
+
+
+	@media (max-width: 480px) {
+	
+		.webchat-iframe {
+			height: 100%;
+		}
+	
+		.alan_chat_content {
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			border-radius: 0;
+		}
+	
+		.alan_chat_content.alan_chat_hide {
+			width: 100%;
+		}
+	
+		.alan_chat_header {
+			width: 100%;
+			height: 42px;
+			border-radius: 0;
+		}
+	
+		.alan_chat_body {
+			width: 100%;
+			height: calc(100dvh - 42px);
+		}
+	
+		.alan_chat_content.alan_chat_hide .alan_chat_body {
+			height: 0;
+		}
+		.alan_hide_mobile{
+				display: none;
+		}
+    body.scroll-lock {
+      overflow: hidden;
+    }
+    
+	}
+`;
+
+var defaultNewTheme = `
+	:root {
+			--alan-color-accent: #34589C;
+			--alan-fab-bg-start: #E8F0FE;
+			--alan-fab-bg-end: white;
+			--alan-fab-outline: rgba(60, 106, 255, 0.12);
+			--alan-fab-text-color: #004EDD;
+	}
+    
+  .alan_float_button .float-button-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--alan-color-accent);
+    clip-path: circle(50% at center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .alan_float_button .float-button-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: hard-light; 
+    scale: 1.2;
+  }
+  
+  .alan_float_button .float-button-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: hard-light; 
+    scale: 2.6;
+    box-shadow: 0px 16px 24px rgba(51.28, 5.64, 106.84, 0.07);
+  }
+
+	.alan_float_button {
+    font-family: Arial, sans-serif;
+		position: fixed;
+		cursor: pointer;
+    display: flex;
+	}
+
+  .alan_float_button:not(.is-active) > div {
+    padding-left: 4px !important;
+  }
+
+  .alan_float_button.is-active {
+    height: 48px
+  }
+  
+  .alan_float_button.is-active .float-button-icon {
+    display: none;
+  }
+
+	.alan_chat_content {
+		width: 380px;
+		position: fixed;
+		z-index: 999999;
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0 0 50px 0 rgba(0,0,0,0.20);
+		font-family: Arial, sans-serif;
+		border-radius: 12px 12px 12px 12px;
+		transition: border-radius 0.25s ease,
+								width 0.25s ease,
+								bottom 0.25s ease;
+		overflow: hidden;
+	}
+	
+	.webchat-iframe {
+		overscroll-behavior: contain; 
+		height: 620px;
+		width: 100%;
+		border: none;
+		display: block !important;
+	}
+	
+	.alan_chat_header {
+    position: absolute;
+    left: 0;
+    right: 0;
+		background: transparent;
+		color: var(--color-accent);
+		cursor: pointer;
+		box-sizing: border-box;
+		z-index : 9999;
+    pointer-events: none;
+	}
+
+  .alan_chat_header .AlanChat-backButton {
+    pointer-events: auto;
+	}
+	
+	.alan_chat_body {
+		background: white;
+		height: 620px;
+		text-align: center;
+		font-size: 11px;
+		color: white;
+		transition: all 0.3s ease-in-out;
+	}
+	
+	.alan_chat_hide .alan_chat_body {
+		height: 0;
+	}
+
+	@media (min-width: 481px) {
+		.alan_chat_header .AlanChat-backButton {
+      display: none !important;
+		}
+	}
+
+	.alan_chat_header .AlanChat-closeButton {
+		pointer-events: auto;
+		display: none;
+	}
+
+	.alan_button_hidden .alan_chat_header .AlanChat-closeButton {
+		display: flex !important;
+	}
+
+	@media (max-width: 480px), (max-height: 500px) and (orientation: landscape) {
+		.alan_button_hidden .alan_chat_header .AlanChat-closeButton {
+			display: none !important;
+		}
+	}
+
+	@media (max-height: 500px) and (orientation: landscape) {
+		.alan_chat_header .AlanChat-backButton {
+			display: flex !important;
+		}
+	}
+
+	@media (max-height: 800px) {
+		.webchat-iframe {
+				/*height: 60vh;*/
+			}
+			.alan_chat_body{
+				/*height: 50vh;*/
+			}
+	}
+
+	@media (max-width: 480px), (max-height: 500px) and (orientation: landscape) {
+		.alan_chat_content,
+		.alan_chat_body {
+			all: unset;
+		}
+
+		.alan_chat_header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 9999999;
+			pointer-events: none;
+		}
+
+		.alan_chat_header .AlanChat-backButton {
+			pointer-events: auto;
+		}
+
+		.webchat-iframe {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+			z-index: 999999;
+		}
+
+		.alan_chat_content.alan_chat_hide .webchat-iframe,
+		.webchat-iframe-hide {
+			display: none !important;
+		}
+
+		.alan_chat_content.alan_chat_hide .alan_chat_header {
+			display: none;
+		}
+
+		.alan_hide_mobile {
+			display: none;
+		}
+
+    body.scroll-lock {
+      overflow: hidden;
+    }
+	}
+`;
+
+var AlanChatThemes = {
+  "default-legacy": alanChatStyles,
+  "default-new": defaultNewTheme,
+};
+
+/* Parte 2: JS */
+
+var AlanChat = {
+  url: "",
+  title: "Ayuda en línea",
+  closeAssistantText: "Cerrar asistente",
+  fabType: "magic",
+  parent: "body",
+  buttonHidden: false,
+  alwaysSameFab: false,
+  right: "16px",
+  bottom: "16px",
+  theme: "default-legacy",
+  draggable: false,
+  callBack: function (data) {
+    console.log("callback func", data);
+  },
+  _lottieLoading: false,
+};
+
+var DeltoSDK = AlanChat;
+
+AlanChat.setHeaderLogoUrl = function (url) {
+  AlanChat.headerLogoUrl = url;
+};
+
+AlanChat.setFloatAvatarUrl = function (url) {
+  AlanChat.floatAvatarUrl = url;
+};
+
+AlanChat.setTheme = function (themeName) {
+  if (AlanChatThemes[themeName]) {
+    AlanChat.theme = themeName;
+  } else {
+    console.warn(
+      'AlanChat: Theme "' +
+      themeName +
+      '" not found. Using "default-legacy" as fallback.',
+    );
+    AlanChat.theme = "default-legacy";
+  }
+};
+
+AlanChat.setLoading = function (status) {
+  if (!status) {
+    AlanChat.loadIframe();
+  }
+};
+
+AlanChat.setParent = function (p) {
+  AlanChat.parent = p;
+};
+
+function updateURLParameter(url, param, paramVal) {
+  var newAdditionalURL = "";
+  var tempArray = url.split("?");
+  var baseURL = tempArray[0];
+  var additionalURL = tempArray[1];
+  var temp = "";
+  if (additionalURL) {
+    tempArray = additionalURL.split("&");
+    for (var i = 0; i < tempArray.length; i++) {
+      if (tempArray[i].split("=")[0] != param) {
+        newAdditionalURL += temp + tempArray[i];
+        temp = "&";
+      }
+    }
+  }
+
+  var rows_txt = temp + "" + param + "=" + paramVal;
+  return baseURL + "?" + newAdditionalURL + rows_txt;
+}
+var positionX = "32px";
+var positionY = "32px";
+var positionMode = "right-bottom"; // "left-top" or "right-bottom"
+var isDragging = false;
+
+AlanChat.setUrl = function (url) {
+  AlanChat.url = updateURLParameter(url, "front-version", "4.3.4-SNAPSHOT");
+};
+
+AlanChat.setParameter = (key, value) => {
+  AlanChat.url = updateURLParameter(AlanChat.url, key, value);
+};
+
+AlanChat.setRight = (value) => {
+  AlanChat.right = value;
+};
+
+AlanChat.setBottom = (value) => {
+  AlanChat.bottom = value;
+};
+
+AlanChat.search = function (url) {
+  AlanChat.url = url;
+};
+AlanChat.setButtonHidden = function (buttonHidden) {
+  AlanChat.buttonHidden = buttonHidden;
+};
+
+AlanChat.data = [];
+AlanChat._onload = function () {
+  AlanChat.ready = true;
+  AlanChat._sendData();
+};
+AlanChat._sendData = function () {
+  if (AlanChat.ready) {
+    // console.log('ready:senddata',AlanChat.data)
+    setTimeout(function () {
+      if (AlanChat.data && AlanChat.data.length > 0) {
+        for (let row of AlanChat.data) {
+          var frame = document.getElementsByClassName("webchat-iframe")[0];
+          frame.contentWindow.postMessage(
+            { call: "sendData", value: row },
+            AlanChat.url,
+          );
+        }
+      }
+      AlanChat.data = [];
+    }, 100);
+  } else {
+    console.log("not ready:queueddata", AlanChat.data);
+  }
+};
+AlanChat.sendData = function (data) {
+  console.log("data:queue", data);
+  AlanChat.data = [];
+  AlanChat.data.push(data);
+  AlanChat._sendData();
+};
+AlanChat.runScripts = undefined;
+
+AlanChat.loadScripts = function (j, file) {
+  var idx = j.src.lastIndexOf("/") + 1;
+  var path = j.src.substring(0, idx);
+
+  AlanChat.runScripts = function () {
+    const alanSDK = document.createElement("script");
+    alanSDK.src = path + file + ".js?10";
+    document.head.appendChild(alanSDK);
+  };
+};
+
+AlanChat.setTitle = function (title) {
+  AlanChat.title = title;
+};
+AlanChat.setCloseAssistantText = function (text) {
+  AlanChat.closeAssistantText = text;
+};
+
+AlanChat.setCallBackFunc = function (func) {
+  AlanChat.callBack = func;
+};
+
+AlanChat.setWelcomeText = function (text) {
+  AlanChat.url = updateURLParameter(AlanChat.url, "welcomeText", text);
+};
+
+AlanChat.setWelcomeName = function (name) {
+  AlanChat.url = updateURLParameter(AlanChat.url, "welcomeName", name);
+};
+
+AlanChat.setWelcomeSuggestion1 = function (text) {
+  AlanChat.url = updateURLParameter(AlanChat.url, "welcomeSuggestion1", text);
+};
+
+AlanChat.setWelcomeSuggestion2 = function (text) {
+  AlanChat.url = updateURLParameter(AlanChat.url, "welcomeSuggestion2", text);
+};
+
+AlanChat.setWelcomeSuggestion3 = function (text) {
+  AlanChat.url = updateURLParameter(AlanChat.url, "welcomeSuggestion3", text);
+};
+
+AlanChat.setFloatButtonColors = function ({
+  startColor,
+  endColor,
+  outlineColor,
+}) {
+  if (startColor)
+    document.documentElement.style.setProperty(
+      "--alan-fab-bg-start",
+      startColor,
+    );
+  if (endColor)
+    document.documentElement.style.setProperty("--alan-fab-bg-end", endColor);
+  if (outlineColor)
+    document.documentElement.style.setProperty(
+      "--alan-fab-outline",
+      outlineColor,
+    );
+};
+
+AlanChat.setFloatButtonTextColor = function (color) {
+  if (color) {
+    document.documentElement.style.setProperty("--alan-fab-text-color", color);
+  }
+};
+
+AlanChat.setAccentColor = function (color) {
+  document.documentElement.style.setProperty("--color-accent", color);
+  document.documentElement.style.setProperty("--alan-color-accent", color);
+};
+
+AlanChat.setFabType = function (type) {
+  AlanChat.fabType = type;
+};
+AlanChat.setDraggable = function (value) {
+  AlanChat.draggable = value;
+};
+AlanChat.setAlwaysSameFab = function (value) {
+  AlanChat.alwaysSameFab = value;
+  if (value && AlanChat.fabType == "icon") {
+    let baseElement = document.getElementsByTagName("body")[0];
+    if (AlanChat.parent != "body") {
+      baseElement = document.getElementById(AlanChat.parent);
+    }
+
+    let element = document.getElementById("alanActionButton");
+    baseElement.removeChild(element);
+
+    var iDiv = document.createElement("div");
+    iDiv.id = "alanActionButton";
+    iDiv.className = "alan_float_button";
+
+    baseElement.appendChild(iDiv);
+    iDiv.insertAdjacentHTML(
+      "afterbegin",
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>',
+    );
+
+    iDiv.addEventListener("click", function () {
+      iDiv.className = "alan_float_button";
+      AlanChat.loadIframe();
+    });
+  }
+};
+AlanChat.open = function (type) {
+  try {
+    document.getElementById("alanActionButton").click();
+  } catch (ex) {
+    try {
+      document.getElementById("alanHeaderButton").click();
+    } catch (ex) { }
+  }
+};
+var isMobile = {
+  Android: function () {
+    return navigator.userAgent.match(/Android/i);
+  },
+  BlackBerry: function () {
+    return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function () {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  Opera: function () {
+    return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function () {
+    return (
+      navigator.userAgent.match(/IEMobile/i) ||
+      navigator.userAgent.match(/WPDesktop/i)
+    );
+  },
+  any: function () {
+    return (
+      isMobile.Android() ||
+      isMobile.BlackBerry() ||
+      isMobile.iOS() ||
+      isMobile.Opera() ||
+      isMobile.Windows()
+    );
+  },
+};
+
+var _origViewport = null;
+function lockViewport() {
+  var meta = document.querySelector('meta[name="viewport"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.name = "viewport";
+    document.head.appendChild(meta);
+  }
+  if (!_origViewport) _origViewport = meta.getAttribute("content") || "";
+  meta.setAttribute("content", "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no");
+}
+function unlockViewport() {
+  if (_origViewport === null) return;
+  var meta = document.querySelector('meta[name="viewport"]');
+  if (meta) meta.setAttribute("content", _origViewport);
+  _origViewport = null;
+}
+
+function scrollListener() {
+  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  window.onscroll = function () {
+    var element = document.getElementById("alanChatContent");
+    if (element && !element.classList.contains("alan_chat_hide")) {
+      window.scrollTo(scrollLeft, scrollTop);
+    }
+  };
+}
+if (!isMobile.any()) {
+  scrollListener();
+}
+
+
+if (window.addEventListener) {
+  window.addEventListener("message", onMessage, false);
+} else if (window.attachEvent) {
+  window.attachEvent("onmessage", onMessage, false);
+}
+
+function onMessage(event) {
+  var data = event.data;
+
+  if (typeof window[data.func] == "function") {
+    window[data.func].call(null, data.message);
+  }
+}
+
+// Function to be called from iframe
+function receiveActivity(message) {
+  AlanChat.callBack(message);
+}
+AlanChat.ready = false;
+AlanChat.start = function () {
+  let alanChatStyles =
+    AlanChatThemes[AlanChat.theme] || AlanChatThemes["default-legacy"];
+
+  if (AlanChat.parent != "body") {
+    alanChatStyles = alanChatStyles + " #alanActionButton{position: relative;}";
+  }
+
+  // If using magic, hide iconFab when width over 480px
+  if (AlanChat.fabType == "magic") {
+    alanChatStyles +=
+      " @media (min-width: 481px) { #alanActionButton:not(.fab_text) { display: none; } }";
+  }
+  // If using icon, hide header when hiding chat
+  else if (AlanChat.fabType == "icon") {
+    alanChatStyles += " .alan_hide_mobile { display: none; }";
+  }
+
+  var styleSheet = document.createElement("style");
+  styleSheet.type = "text/css";
+  styleSheet.innerText = alanChatStyles;
+  styleSheet.rel = "stylesheet";
+  styleSheet.media = "screen,print";
+  document.head.appendChild(styleSheet);
+
+  function getVW() {
+    return Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0,
+    );
+  }
+
+  function createDiv(id, className) {
+    const div = document.createElement("div");
+    div.id = id;
+    if (className) {
+      div.className = className;
+    }
+    return div;
+  }
+
+  // "Should the textFab be visible now?"
+  function isTextFab() {
+    return (
+      AlanChat.fabType === "text" ||
+      (AlanChat.fabType === "magic" && !(getVW() <= 480 && isMobile.any()))
+    );
+  }
+
+  // "Are we using the iconFab at all?"
+  function usingIconFab() {
+    return (
+      AlanChat.fabType === "icon" ||
+      (AlanChat.fabType === "magic" && isMobile.any())
+    );
+  }
+  function usingIconFabMobile() {
+    return (
+      AlanChat.fabType === "icon" ||
+      (AlanChat.fabType === "magic" && getVW() <= 480 && !!isMobile.any())
+    );
+  }
+
+  const iconFabSvg =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>';
+  const textFabText = "<h3>" + AlanChat.title + "</h3>";
+
+  let baseElement =
+    AlanChat.parent == "body"
+      ? document.getElementsByTagName("body")[0]
+      : (baseElement = document.getElementById(AlanChat.parent));
+
+  // Float Button
+  const iDiv = createDiv(
+    "alanActionButton",
+    isTextFab() ? "alan_float_button fab_text" : "alan_float_button",
+  );
+
+  if (AlanChat.theme === "default-legacy") {
+    iDiv.insertAdjacentHTML(
+      "afterbegin",
+      isTextFab() ? textFabText : iconFabSvg,
+    );
+  }
+
+  if (AlanChat.theme === "default-new") {
+    iDiv.style.right = AlanChat.right;
+    iDiv.style.bottom = AlanChat.bottom;
+
+    // TODO: change by remote url
+    const animationFloatAvatar = {
+      v: "5.7.5",
+      fr: 100,
+      ip: 0,
+      op: 2000,
+      w: 208,
+      h: 208,
+      ddd: 0,
+      assets: [
+        {
+          id: "0",
+          u: "",
+          p: "data:image/png;base64,UklGRiAJAABXRUJQVlA4WAoAAAAgAAAAQQEALwEASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDggMgcAALBGAJ0BKkIBMAE+nUyeTCWsLSUlFnoJoBOJZW7fiu8UsLTT2rec+wnHgzd3EbiR5TvDIH4NtzvtPmDbnfafMG3O+ycZC7coBo/8Od2a1tMG3O+091RJ//87r//N25ZfvNDfWNkDJ/Hs8FkLHJQkepgmnzBtzrdUgK3UkFRygGsCFHdJNev/KzZWToclx/Veb8sgH3dVwVpCictC4F2RCXwOtL6LqYSKqFu/9ku5rGAjSOsTYEzlLkht1UYQKBL+wJ1PjabPXTCiZryjpLFTQCyBl+pFAC3BP/RMUwcLpqATzjvmr6X2mP/+g4GZzMTUx/eR9g16UFvQS0sEVvWTPMbd2c2MN+EowY/sTrav5B7Ro1o3a+aYYh89PuOKJmdo36qJk0T1ye4aD5MyYPwemvGoueGCSulx1t3JDCbjZsxu+nYSy3yItmPRbDS2TMPNcHcc39FWf7tfhNdye4UguCxR3zpfCKDLKQzKLEm9T8Y2Bi3zlIS+b/GbNQ2nPqEYrcutdwCSiQGN2+EvcYfARofWQ+NN6yk2CbIvi9f27hIHDjaCCosuR8vENVonAC4SRFEuyx1AlbmPXh9D2MmAmWOojuA0VX0h1Zu1wYXkDo87PJJdqA2dds9mKGDp1SItrdtExbOq1R+CgIctxTtdqJy5lzsETWgzJdMnS9pPRWtRreMuhKJTU3tgWF2z1h47GoSSRd7ahf7DkllUF5EcB6l5Mvg7MgATyGzAZXzItpg6yxN5L0+zQCFEdl4j+AAA/vX45NXfYD9QlntaqAoAAADj8gATr8M8vWMOsLHgQRDJIdERU9MF75nxC8J/OZYyc4a1rTmEUXM61SB0rDQcRZfQAGaAwssA3o49iYDUOGJqcNQI4JcAyyUEqwQkfVX+2zjveyKDLmtzETg7LkfDh/cImcO41sOnMasiFfJbGfvTiOr7w4v0DEoDCoN5a0CCI+g3pZ6+Dr0peu9SaTMQ5Zb+DTL2whhX6GGH/6W+oMLrJIcB5tyoTjWSP5ruAoKOgKJQ9J9eiTCfsOdqNZAA5ypPoShCyAMZqhM/KGXhwN0u1V9WhopUmNHbVmQCz5Xzp7P79x4obY0gQH2jdVedJ6FG4MHng5YVRHZDlMzO2RwxSZEe+fP4Q4eNZkMjDLvHw357yWEXNXNmtwjagjkRCz83p99mqTW0+KR/UkBZ1rT2JFSYGw+y5+6qHf5HGEgTUybn2Rz4juRAP2NCzhp1Pr8JjMOxe/5h8R0DpyFDZb9Ga4P6mtwZHQ/+R/V0EoiTwEp6JwKJRUn9jSEoF8HMgyJDQbM7vuZmqRghd/9UzgnX1fsCpH4fH/p4BOBzbvIEfM4+ce1btPkQkwOhhHKOpbQbGC9xyUKphnNJ75PgJauWWeTSa7Tr2bzRNL/rEB5o7VlTrznkot301dudEkecMVS2SBazSCN+s1NmOrC0o3zgcb2ul1rmKPe1ZjKObgblkTNRzC/sM5dNNTDOcLT5nzZfog0uhVocTROFiiHf3fzI51TvtIH154DC00R+p2tsLDpyF0qLKaaWpecFdN4xcBo62yMDKr2Zx5RGlvcAiERSYBTJoz3UvnprOLumHCsK2tLZHihpB31eo7ItpxKLcyHO/dyvCdPyQxAkpdKKVihAX+gJcMQr43js+hC18U9DRF66LxL3N9HipKgMVNyzX54MzuH5hpxfxVUiL2wVnNwjq6BvE3eXbqVrGE37C1TlcH/aXk2eoTeoEhwNjEDe/EOYMoVOa/WJnoyoAuFO83b3tfmdCSEELCXfifJCZOscAOYO3BmXjHMiNGuRFHJyqjIbLf7VqRvv/7PA2W4P1UNTLA2IkK7giej6dsex+5adPJS7rPMd503ZAGbNQsQ076GCO5gMjvDGXAZiYdFFQOJcOgSnkqe6AFvr/ce33J5FpLQjnj63Xfxg4SKjvO8iXp/XC5PIjlzc1EUEe0gaIox6ElYDQXJJioK4ZqaozXUD6GaDRMBL3JZn2EUjH7ci4ABpkN9KmdfQIUPgBpgu2z6Z7DdGnosJG0tqYLL1A3nQ4h9R/JBSZwaFl4Oq8dwPmLei2AA89ZWx/KIuXulzizdsAMMyfY3XyAo80rdcSa8nsaz8mb+QjONPs9TOFdjY+ZQ50O2FN0+G1UY1AyCU/Jo2r0mN7/dV89CANe161LSaYXd4pbyiY24VcD4lThBAM0Gr9MvIjWpdK5chGnZdqGj/eBl0jMBucc2TzRkGfOeDbVrdqUpOE7TGk63IXMFq7UriNRfsNUewv5xSCugjEkbANFzehyQ0U1DTCB34PR3pj2O1JIPsFddURIwEHCPidbPnxOhb36YJZuDU3eLGHBrHjI54hH0RxdFtf59FCsJ5r3Nug7ok7Lt+BxLVejGATfziWqjwxJNd/kpcRVemfFM+eRM/3kfmWkp4dgcbPYFICMR32FoewFGIq4i65sBcDgAAAA==",
+          w: 322,
+          h: 304,
+          e: 1,
+        },
+        {
+          id: "1",
+          layers: [
+            {
+              ddd: 0,
+              ind: 5,
+              ty: 3,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [87, 87], ix: 2 },
+                a: { a: 0, k: [80, 80], ix: 2 },
+                s: { a: 0, k: [100, 100], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              refId: "3",
+              w: 81,
+              h: 81,
+              ind: 3,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-1, -1], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              parent: 5,
+            },
+            {
+              ddd: 0,
+              ind: 6,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [94, 94], ix: 2 },
+                  p: { a: 0, k: [47, 47], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "4",
+          layers: [
+            {
+              ddd: 0,
+              refId: "5",
+              w: 96,
+              h: 96,
+              ind: 7,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-7, -7], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              bm: 5,
+              ef: [
+                {
+                  ty: 25,
+                  nm: "Drop Shadow",
+                  mn: "ADBE Drop Shadow",
+                  ef: [
+                    {
+                      ty: 2,
+                      nm: "Shadow Color",
+                      mn: "ADBE Drop Shadow-0001",
+                      v: { a: 0, k: [1, 1, 1], ix: 2 },
+                    },
+                    {
+                      ty: 0,
+                      nm: "Opacity",
+                      mn: "ADBE Drop Shadow-0002",
+                      v: { a: 0, k: 255, ix: 2 },
+                    },
+                    {
+                      ty: 1,
+                      nm: "Direction",
+                      mn: "ADBE Drop Shadow-0003",
+                      v: { a: 0, k: 90, ix: 2 },
+                    },
+                    {
+                      ty: 0,
+                      nm: "Distance",
+                      mn: "ADBE Drop Shadow-0004",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                    {
+                      ty: 0,
+                      nm: "Softness",
+                      mn: "ADBE Drop Shadow-0005",
+                      v: { a: 0, k: 6, ix: 2 },
+                    },
+                  ],
+                  np: 5,
+                  ix: 0,
+                  en: 1,
+                },
+              ],
+            },
+            {
+              ddd: 0,
+              ind: 8,
+              ty: 4,
+              sr: 1,
+              ks: { p: { a: 0, k: [1, 1], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [81, 81], ix: 2 },
+                  p: { a: 0, k: [39.5, 39.5], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "3",
+          layers: [
+            {
+              ddd: 0,
+              ind: 9,
+              ty: 4,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [1, 1], ix: 2 },
+                o: {
+                  a: 1,
+                  k: [
+                    { t: 0, s: [100], h: 1 },
+                    { t: 2000, s: [0], h: 1 },
+                  ],
+                  ix: 2,
+                },
+              },
+              td: 1,
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "sh",
+                      d: 1,
+                      ks: {
+                        a: 0,
+                        k: {
+                          c: true,
+                          v: [
+                            [0, -40],
+                            [0, -40],
+                            [40, 0],
+                            [40, 0],
+                            [0, 40],
+                            [0, 40],
+                            [-40, 0],
+                            [-40, 0],
+                            [0, -40],
+                          ],
+                          i: [
+                            [0, 0],
+                            [0, 0],
+                            [0, -22.091],
+                            [0, 0],
+                            [22.091, 0],
+                            [0, 0],
+                            [0, 22.091],
+                            [0, 0],
+                            [-22.091, 0],
+                          ],
+                          o: [
+                            [0, 0],
+                            [22.091, 0],
+                            [0, 0],
+                            [0, 22.091],
+                            [0, 0],
+                            [-22.091, 0],
+                            [0, 0],
+                            [0, -22.091],
+                            [0, 0],
+                          ],
+                        },
+                      },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [1, 1, 1], ix: 2 },
+                      o: { a: 0, k: 59.86, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: { a: 0, k: [40, 40], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              refId: "4",
+              w: 81,
+              h: 81,
+              ind: 3,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [39.5, 39.5], ix: 2 },
+                a: { a: 0, k: [39.5, 39.5], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              tt: 1,
+            },
+          ],
+        },
+        {
+          id: "5",
+          layers: [
+            {
+              ddd: 0,
+              ind: 10,
+              ty: 4,
+              sr: 1,
+              ks: { p: { a: 0, k: [8, 8], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "sh",
+                      d: 1,
+                      ks: {
+                        a: 0,
+                        k: {
+                          c: true,
+                          v: [
+                            [0, -40],
+                            [0, -40],
+                            [40, 0],
+                            [40, 0],
+                            [0, 40],
+                            [0, 40],
+                            [-40, 0],
+                            [-40, 0],
+                            [0, -40],
+                          ],
+                          i: [
+                            [0, 0],
+                            [0, 0],
+                            [0, -22.091],
+                            [0, 0],
+                            [22.091, 0],
+                            [0, 0],
+                            [0, 22.091],
+                            [0, 0],
+                            [-22.091, 0],
+                          ],
+                          o: [
+                            [0, 0],
+                            [22.091, 0],
+                            [0, 0],
+                            [0, 22.091],
+                            [0, 0],
+                            [-22.091, 0],
+                            [0, 0],
+                            [0, -22.091],
+                            [0, 0],
+                          ],
+                        },
+                      },
+                    },
+                    {
+                      ty: "st",
+                      c: { a: 0, k: [1, 1, 1], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      w: { a: 0, k: 2, ix: 2 },
+                      lc: 1,
+                      lj: 1,
+                      ml: 4,
+                    },
+                    {
+                      ty: "tr",
+                      p: { a: 0, k: [40, 40], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+              bm: 5,
+            },
+            {
+              ddd: 0,
+              ind: 11,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [96, 96], ix: 2 },
+                  p: { a: 0, k: [48, 48], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "2",
+          layers: [
+            {
+              ddd: 0,
+              ind: 12,
+              ty: 3,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [93, 92], ix: 2 },
+                a: { a: 0, k: [80, 80], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              refId: "6",
+              w: 81,
+              h: 81,
+              ind: 4,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-1, -1], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              parent: 12,
+            },
+            {
+              ddd: 0,
+              ind: 13,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [105, 105], ix: 2 },
+                  p: { a: 0, k: [52.5, 52.5], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "7",
+          layers: [
+            {
+              ddd: 0,
+              refId: "8",
+              w: 91,
+              h: 98,
+              ind: 14,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-8, 0], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              ef: [
+                {
+                  ty: 29,
+                  nm: "Gaussian Blur2",
+                  mn: "ADBE Gaussian Blur 2",
+                  ef: [
+                    {
+                      ty: 0,
+                      nm: "Blurriness",
+                      mn: "ADBE Gaussian Blur 2-0001",
+                      v: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [33],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 456, s: [20] },
+                        ],
+                        ix: 2,
+                      },
+                    },
+                    {
+                      ty: 7,
+                      nm: "Blur Dimensions",
+                      mn: "ADBE Gaussian Blur 2-0002",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                    {
+                      ty: 4,
+                      nm: "Repeat Edge Pixels",
+                      mn: "ADBE Gaussian Blur 2-0003",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                  ],
+                  np: 1,
+                  ix: 0,
+                  en: 1,
+                },
+              ],
+            },
+            {
+              ddd: 0,
+              refId: "9",
+              w: 128,
+              h: 130,
+              ind: 15,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-25, -23], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              ef: [
+                {
+                  ty: 29,
+                  nm: "Gaussian Blur2",
+                  mn: "ADBE Gaussian Blur 2",
+                  ef: [
+                    {
+                      ty: 0,
+                      nm: "Blurriness",
+                      mn: "ADBE Gaussian Blur 2-0001",
+                      v: { a: 0, k: 20, ix: 2 },
+                    },
+                    {
+                      ty: 7,
+                      nm: "Blur Dimensions",
+                      mn: "ADBE Gaussian Blur 2-0002",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                    {
+                      ty: 4,
+                      nm: "Repeat Edge Pixels",
+                      mn: "ADBE Gaussian Blur 2-0003",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                  ],
+                  np: 1,
+                  ix: 0,
+                  en: 1,
+                },
+              ],
+            },
+            {
+              ddd: 0,
+              refId: "a",
+              w: 142,
+              h: 142,
+              ind: 16,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-29, -28], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              ef: [
+                {
+                  ty: 29,
+                  nm: "Gaussian Blur2",
+                  mn: "ADBE Gaussian Blur 2",
+                  ef: [
+                    {
+                      ty: 0,
+                      nm: "Blurriness",
+                      mn: "ADBE Gaussian Blur 2-0001",
+                      v: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [33],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 488, s: [20] },
+                        ],
+                        ix: 2,
+                      },
+                    },
+                    {
+                      ty: 7,
+                      nm: "Blur Dimensions",
+                      mn: "ADBE Gaussian Blur 2-0002",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                    {
+                      ty: 4,
+                      nm: "Repeat Edge Pixels",
+                      mn: "ADBE Gaussian Blur 2-0003",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                  ],
+                  np: 1,
+                  ix: 0,
+                  en: 1,
+                },
+              ],
+            },
+            {
+              ddd: 0,
+              refId: "b",
+              w: 129,
+              h: 135,
+              ind: 17,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-16, -28], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              ef: [
+                {
+                  ty: 29,
+                  nm: "Gaussian Blur2",
+                  mn: "ADBE Gaussian Blur 2",
+                  ef: [
+                    {
+                      ty: 0,
+                      nm: "Blurriness",
+                      mn: "ADBE Gaussian Blur 2-0001",
+                      v: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [33],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 597, s: [20] },
+                        ],
+                        ix: 2,
+                      },
+                    },
+                    {
+                      ty: 7,
+                      nm: "Blur Dimensions",
+                      mn: "ADBE Gaussian Blur 2-0002",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                    {
+                      ty: 4,
+                      nm: "Repeat Edge Pixels",
+                      mn: "ADBE Gaussian Blur 2-0003",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                  ],
+                  np: 1,
+                  ix: 0,
+                  en: 1,
+                },
+              ],
+            },
+            {
+              ddd: 0,
+              refId: "c",
+              w: 133,
+              h: 121,
+              ind: 18,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-20, -7], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              ef: [
+                {
+                  ty: 29,
+                  nm: "Gaussian Blur2",
+                  mn: "ADBE Gaussian Blur 2",
+                  ef: [
+                    {
+                      ty: 0,
+                      nm: "Blurriness",
+                      mn: "ADBE Gaussian Blur 2-0001",
+                      v: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [33],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 646, s: [20] },
+                        ],
+                        ix: 2,
+                      },
+                    },
+                    {
+                      ty: 7,
+                      nm: "Blur Dimensions",
+                      mn: "ADBE Gaussian Blur 2-0002",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                    {
+                      ty: 4,
+                      nm: "Repeat Edge Pixels",
+                      mn: "ADBE Gaussian Blur 2-0003",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                  ],
+                  np: 1,
+                  ix: 0,
+                  en: 1,
+                },
+              ],
+            },
+            {
+              ddd: 0,
+              refId: "d",
+              w: 145,
+              h: 143,
+              ind: 19,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [-32, -31], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              ef: [
+                {
+                  ty: 29,
+                  nm: "Gaussian Blur2",
+                  mn: "ADBE Gaussian Blur 2",
+                  ef: [
+                    {
+                      ty: 0,
+                      nm: "Blurriness",
+                      mn: "ADBE Gaussian Blur 2-0001",
+                      v: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [33],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 646, s: [20] },
+                        ],
+                        ix: 2,
+                      },
+                    },
+                    {
+                      ty: 7,
+                      nm: "Blur Dimensions",
+                      mn: "ADBE Gaussian Blur 2-0002",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                    {
+                      ty: 4,
+                      nm: "Repeat Edge Pixels",
+                      mn: "ADBE Gaussian Blur 2-0003",
+                      v: { a: 0, k: 0, ix: 2 },
+                    },
+                  ],
+                  np: 1,
+                  ix: 0,
+                  en: 1,
+                },
+              ],
+            },
+            {
+              ddd: 0,
+              ind: 20,
+              ty: 4,
+              sr: 1,
+              ks: { p: { a: 0, k: [1, 1], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "rc",
+                      d: 1,
+                      s: { a: 0, k: [80, 80], ix: 2 },
+                      p: { a: 0, k: [0, 0], ix: 2 },
+                      r: { a: 0, k: 400, ix: 2 },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.232, 0.424, 0.97], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: { a: 0, k: [40, 40], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              ind: 21,
+              ty: 4,
+              sr: 1,
+              ks: { p: { a: 0, k: [1, 1], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [81, 81], ix: 2 },
+                  p: { a: 0, k: [39.5, 39.5], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "6",
+          layers: [
+            {
+              ddd: 0,
+              ind: 22,
+              ty: 4,
+              sr: 1,
+              ks: { p: { a: 0, k: [1, 1], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+              td: 1,
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "rc",
+                      d: 1,
+                      s: { a: 0, k: [80, 80], ix: 2 },
+                      p: { a: 0, k: [0, 0], ix: 2 },
+                      r: { a: 0, k: 400, ix: 2 },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.244, 0.44, 0.981], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: { a: 0, k: [40, 40], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              refId: "7",
+              w: 81,
+              h: 81,
+              ind: 4,
+              ty: 0,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [39.5, 39.5], ix: 2 },
+                a: { a: 0, k: [39.5, 39.5], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              ip: 0,
+              op: 2001,
+              st: 0,
+              tt: 1,
+            },
+          ],
+        },
+        {
+          id: "8",
+          layers: [
+            {
+              ddd: 0,
+              ind: 23,
+              ty: 4,
+              sr: 1,
+              ks: { p: { a: 0, k: [9, 1], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "el",
+                      d: 1,
+                      s: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [30.43, 30.43],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 456, s: [35.42, 35.42] },
+                        ],
+                        ix: 2,
+                      },
+                      p: { a: 0, k: [0, 0], ix: 2 },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.84, 0.891, 0.993], ix: 2 },
+                      o: { a: 0, k: 46, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [29.14, 36.67],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 456,
+                            s: [40, 42.69],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 1227,
+                            s: [44.12, 59.39],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 2000, s: [28.65, 36.67] },
+                        ],
+                        ix: 2,
+                      },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              ind: 24,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [91, 98], ix: 2 },
+                  p: { a: 0, k: [45.5, 49], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "9",
+          layers: [
+            {
+              ddd: 0,
+              ind: 25,
+              ty: 4,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [26, 24], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "el",
+                      d: 1,
+                      s: { a: 0, k: [42.49, 57.33], ix: 2 },
+                      p: { a: 0, k: [0, 0], ix: 2 },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.25, 0.44, 0.997], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 40,
+                            s: [61.05, 28.55],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 563,
+                            s: [45, 78],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 1082,
+                            s: [8.83, 17.33],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 2000, s: [60.07, 28.93] },
+                        ],
+                        ix: 2,
+                      },
+                      s: { a: 0, k: [100, 100], ix: 2 },
+                      r: { a: 0, k: -16.62, ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              ind: 26,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [128, 130], ix: 2 },
+                  p: { a: 0, k: [64, 65], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "a",
+          layers: [
+            {
+              ddd: 0,
+              ind: 27,
+              ty: 4,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [30, 29], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "el",
+                      d: 1,
+                      s: { a: 0, k: [26, 34], ix: 2 },
+                      p: { a: 0, k: [0, 0], ix: 2 },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.25, 0.44, 0.997], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [3, 34.69],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 488,
+                            s: [79, 8],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 1270,
+                            s: [44, 95],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 2000, s: [3.37, 34.87] },
+                        ],
+                        ix: 2,
+                      },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              ind: 28,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [142, 142], ix: 2 },
+                  p: { a: 0, k: [71, 71], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "b",
+          layers: [
+            {
+              ddd: 0,
+              ind: 29,
+              ty: 4,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [17, 29], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "el",
+                      d: 1,
+                      s: { a: 0, k: [28, 27], ix: 2 },
+                      p: { a: 0, k: [0, 0], ix: 2 },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.91, 0.942, 0.993], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [17, 9.19],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 597,
+                            s: [67.11, 71.83],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 1227,
+                            s: [78, 5],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 2000, s: [17.03, 9.16] },
+                        ],
+                        ix: 2,
+                      },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              ind: 30,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [129, 135], ix: 2 },
+                  p: { a: 0, k: [64.5, 67.5], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "c",
+          layers: [
+            {
+              ddd: 0,
+              ind: 31,
+              ty: 4,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [21, 8], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "el",
+                      d: 1,
+                      s: { a: 0, k: [39, 37], ix: 2 },
+                      p: { a: 0, k: [0, 0], ix: 2 },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.875, 0.906, 1], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [35.5, 31.19],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 646,
+                            s: [19, 56],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 1227,
+                            s: [76.99, 85.01],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 2000, s: [35.9, 30.86] },
+                        ],
+                        ix: 2,
+                      },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              ind: 32,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [133, 121], ix: 2 },
+                  p: { a: 0, k: [66.5, 60.5], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+        {
+          id: "d",
+          layers: [
+            {
+              ddd: 0,
+              ind: 33,
+              ty: 4,
+              sr: 1,
+              ks: {
+                p: { a: 0, k: [33, 32], ix: 2 },
+                o: { a: 0, k: 100, ix: 2 },
+              },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "gr",
+                  it: [
+                    {
+                      ty: "sh",
+                      d: 1,
+                      ks: {
+                        a: 0,
+                        k: {
+                          c: true,
+                          v: [
+                            [0, -26],
+                            [33, 0],
+                            [0, 26],
+                            [-33, 0],
+                            [0, -26],
+                          ],
+                          i: [
+                            [0, 0],
+                            [0, -14.359],
+                            [18.225, 0],
+                            [0, 14.359],
+                            [-18.225, 0],
+                          ],
+                          o: [
+                            [18.225, 0],
+                            [0, 14.359],
+                            [-18.225, 0],
+                            [0, -14.359],
+                            [0, 0],
+                          ],
+                        },
+                      },
+                    },
+                    {
+                      ty: "fl",
+                      c: { a: 0, k: [0.875, 0.91, 1], ix: 2 },
+                      o: { a: 0, k: 100, ix: 2 },
+                      r: 1,
+                      bm: 0,
+                    },
+                    {
+                      ty: "tr",
+                      p: {
+                        a: 1,
+                        k: [
+                          {
+                            t: 0,
+                            s: [25, 64.69],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 646,
+                            s: [9, 13],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          {
+                            t: 1270,
+                            s: [73, 2],
+                            i: { x: [0.75], y: [0.75] },
+                            o: { x: [0.25], y: [0.25] },
+                          },
+                          { t: 2000, s: [24.88, 64.78] },
+                        ],
+                        ix: 2,
+                      },
+                      o: { a: 0, k: 100, ix: 2 },
+                    },
+                  ],
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+            {
+              ddd: 0,
+              ind: 34,
+              ty: 4,
+              sr: 1,
+              ks: { o: { a: 0, k: 100, ix: 2 } },
+              ao: 0,
+              shapes: [
+                {
+                  ty: "rc",
+                  d: 1,
+                  s: { a: 0, k: [145, 143], ix: 2 },
+                  p: { a: 0, k: [72.5, 71.5], ix: 2 },
+                  r: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: "fl",
+                  c: { a: 0, k: [0, 0, 0], ix: 2 },
+                  o: { a: 0, k: 0, ix: 2 },
+                  r: 1,
+                  bm: 0,
+                },
+              ],
+              ip: 0,
+              op: 2001,
+              st: 0,
+            },
+          ],
+        },
+      ],
+      layers: [
+        {
+          ddd: 0,
+          refId: "0",
+          ind: 1,
+          ty: 2,
+          nm: "lottielab.com",
+          sr: 1,
+          ks: {
+            p: { a: 0, k: [-57, 141], ix: 2 },
+            a: { a: 0, k: [161, 152], ix: 2 },
+            s: { a: 0, k: [30.33, 30.33], ix: 2 },
+            o: { a: 0, k: 100, ix: 2 },
+          },
+          ao: 0,
+          ip: 0,
+          op: 2001,
+          st: 0,
+        },
+        {
+          ddd: 0,
+          ind: 2,
+          ty: 3,
+          sr: 1,
+          ks: {
+            p: { a: 0, k: [104, 104], ix: 2 },
+            a: { a: 0, k: [40, 40], ix: 2 },
+            o: { a: 0, k: 100, ix: 2 },
+          },
+          ao: 0,
+          ip: 0,
+          op: 2001,
+          st: 0,
+        },
+        {
+          ddd: 0,
+          refId: "1",
+          w: 94,
+          h: 94,
+          ind: 3,
+          ty: 0,
+          sr: 1,
+          ks: { p: { a: 0, k: [-7, -7], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+          ao: 0,
+          ip: 0,
+          op: 2001,
+          st: 0,
+          parent: 2,
+          ef: [
+            {
+              ty: 25,
+              nm: "Drop Shadow",
+              mn: "ADBE Drop Shadow",
+              ef: [
+                {
+                  ty: 2,
+                  nm: "Shadow Color",
+                  mn: "ADBE Drop Shadow-0001",
+                  v: { a: 0, k: [1, 1, 1], ix: 2 },
+                },
+                {
+                  ty: 0,
+                  nm: "Opacity",
+                  mn: "ADBE Drop Shadow-0002",
+                  v: { a: 0, k: 255, ix: 2 },
+                },
+                {
+                  ty: 1,
+                  nm: "Direction",
+                  mn: "ADBE Drop Shadow-0003",
+                  v: { a: 0, k: 90, ix: 2 },
+                },
+                {
+                  ty: 0,
+                  nm: "Distance",
+                  mn: "ADBE Drop Shadow-0004",
+                  v: { a: 0, k: 0, ix: 2 },
+                },
+                {
+                  ty: 0,
+                  nm: "Softness",
+                  mn: "ADBE Drop Shadow-0005",
+                  v: { a: 0, k: 10, ix: 2 },
+                },
+              ],
+              np: 5,
+              ix: 0,
+              en: 1,
+            },
+          ],
+        },
+        {
+          ddd: 0,
+          refId: "2",
+          w: 105,
+          h: 105,
+          ind: 4,
+          ty: 0,
+          sr: 1,
+          ks: { p: { a: 0, k: [-13, -12], ix: 2 }, o: { a: 0, k: 100, ix: 2 } },
+          ao: 0,
+          ip: 0,
+          op: 2001,
+          st: 0,
+          parent: 2,
+          ef: [],
+        },
+      ],
+    };
+
+    iDiv.insertAdjacentHTML(
+      "afterbegin",
+      `<div style="width: 100%; height: 100%; box-sizing: border-box; padding: 4px 24px; background: linear-gradient(231deg, var(--alan-fab-bg-start) 0%, var(--alan-fab-bg-end) 100%); box-shadow: 0px 12px 24px rgba(0, 33.69, 84.22, 0.06); border-radius: 40px; outline: 1px var(--alan-fab-outline) solid; outline-offset: -1px; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
+        <div class="float-button-icon">
+          ${AlanChat.floatAvatarUrl ? `<img style="box-shadow: 0px 16px 24px rgba(51.28, 5.64, 106.84, 0.07); border-radius: 9999px; overflow: hidden;" src="${AlanChat.floatAvatarUrl}" />` : ""}
+        </div>
+        <div id="alanFloatButtonTitle" style="justify-content: center; display: flex; flex-direction: column; color: var(--alan-fab-text-color); font-size: 14px; font-weight: 500; line-height: 20px; word-wrap: break-word">${AlanChat.title}</div>
+      </div>`,
+    );
+
+    if (!AlanChat.floatAvatarUrl) {
+
+      const customizedAnimation = customizeOrbAnimation(
+        animationFloatAvatar,
+        getComputedStyle(document.documentElement).getPropertyValue("--alan-color-acent") || "#3B82F6",
+      );
+
+      const loadAnimation = () => {
+        lottie.loadAnimation({
+          container: iDiv.querySelector(".float-button-icon"),
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          animationData: customizedAnimation,
+        });
+      };
+
+      if (typeof lottie === "undefined") {
+        if (!AlanChat._lottieLoading) {
+          AlanChat._lottieLoading = true;
+          const script = document.createElement("script");
+          script.src =
+            "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
+          script.integrity =
+            "sha512-uOtp2vx2X/5+tLBEf5UoQyqwAkFZJBM5XwGa7BfXDnWR+wdpRvlSVzaIVcRe3tGNsStu6UMDCeXKEnr4IBT8gA==";
+          script.crossOrigin = "anonymous";
+          script.referrerPolicy = "no-referrer";
+          script.onload = loadAnimation;
+          document.head.appendChild(script);
+        }
+      } else {
+        loadAnimation();
+      }
+    }
+  }
+
+  baseElement.appendChild(iDiv);
+
+  const iDivChat = createDiv("alanChat");
+
+  const iDivHeaderTitle = document.createElement("h3");
+  iDivHeaderTitle.id = "alanHeaderText";
+
+  const iDivHeader = createDiv("alanHeaderButton");
+
+  const iDivContent = createDiv("alanChatContent", "alan_chat_content");
+
+  if (AlanChat.buttonHidden) {
+    try {
+      document
+        .getElementById("alanActionButton")
+        .style.setProperty("display", "none");
+    } catch (ex) {
+      try {
+        document
+          .getElementById("alanHeaderButton")
+          .style.setProperty("display", "none");
+      } catch (ex) { }
+    }
+    baseElement.classList.add("alan_button_hidden");
+  }
+
+  {
+    var isDragging = false;
+    var initialX, initialY, offsetX, offsetY;
+
+    const element = document.getElementById("alanActionButton");
+
+    // Touch drag (mobile)
+    if (usingIconFabMobile()) {
+      var touchHasMoved = false;
+
+      element.addEventListener(
+        "touchstart",
+        (e) => {
+          isDragging = true;
+          touchHasMoved = false;
+          var touch = e.touches[0];
+          initialX = touch.clientX;
+          initialY = touch.clientY;
+          const rect = element.getBoundingClientRect();
+          offsetX = rect.left;
+          offsetY = rect.top;
+          element.style.transition = "none";
+          document.body.style.overflow = "hidden";
+          document.body.classList.add("scroll-lock");
+        },
+        { passive: false },
+      );
+
+      document.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!isDragging) return;
+          var touch = e.touches[0];
+          const deltaX = touch.clientX - initialX;
+          const deltaY = touch.clientY - initialY;
+
+          if (!touchHasMoved) {
+            touchHasMoved = true;
+            element.style.right = "auto";
+            element.style.bottom = "auto";
+            element.style.left = offsetX + "px";
+            element.style.top = offsetY + "px";
+          }
+
+          element.style.left = offsetX + deltaX + "px";
+          element.style.top = offsetY + deltaY + "px";
+          e.preventDefault();
+        },
+        { passive: false },
+      );
+
+      document.addEventListener("touchend", () => {
+        isDragging = false;
+        positionX = element.style.left;
+        positionY = element.style.top;
+        positionMode = "left-top";
+        element.style.transition = "";
+        document.body.style.overflow = "auto";
+        document.body.classList.remove("scroll-lock");
+      });
+    }
+
+    // Mouse drag (desktop) — independent of fabType
+    if (AlanChat.draggable) {
+      var hasMoved = false;
+
+      element.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        hasMoved = false;
+        initialX = e.clientX;
+        initialY = e.clientY;
+        const rect = element.getBoundingClientRect();
+        offsetX = rect.left;
+        offsetY = rect.top;
+        element.style.transition = "none";
+        e.preventDefault();
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        const deltaX = e.clientX - initialX;
+        const deltaY = e.clientY - initialY;
+        if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+          if (!hasMoved) {
+            hasMoved = true;
+            element.style.right = "auto";
+            element.style.bottom = "auto";
+            element.style.left = offsetX + "px";
+            element.style.top = offsetY + "px";
+          }
+          element.style.left = offsetX + deltaX + "px";
+          element.style.top = offsetY + deltaY + "px";
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (!isDragging) return;
+        isDragging = false;
+        // Convert left/top to right/bottom so position adapts on window resize
+        // Clamp to 0 to prevent negative values when dragged outside viewport
+        var rect = element.getBoundingClientRect();
+        var newRight = Math.max(0, window.innerWidth - rect.right);
+        var newBottom = Math.max(0, window.innerHeight - rect.bottom);
+        element.style.left = "auto";
+        element.style.top = "auto";
+        element.style.right = newRight + "px";
+        element.style.bottom = newBottom + "px";
+        positionX = element.style.right;
+        positionY = element.style.bottom;
+        positionMode = "right-bottom";
+        element.style.transition = "";
+      });
+
+      document.addEventListener("click", (e) => {
+        if (hasMoved && (e.target === element || element.contains(e.target))) {
+          e.stopImmediatePropagation();
+          hasMoved = false;
+        }
+      }, true);
+    }
+  }
+
+  AlanChat.loadIframe = function () {
+    if (baseElement.contains(iDiv)) {
+      const rect = iDiv.getBoundingClientRect();
+      if (positionMode === "right-bottom") {
+        positionX = iDiv.style.right || (window.innerWidth - rect.right) + "px";
+        positionY = iDiv.style.bottom || (window.innerHeight - rect.bottom) + "px";
+      } else {
+        positionX = iDiv.style.left || rect.left + "px";
+        positionY = iDiv.style.top || rect.top + "px";
+      }
+
+      if (AlanChat.theme === "default-legacy") {
+        iDiv.style.setProperty("display", "none");
+      } else if (usingIconFab() && !isMobile.any()) {
+        iDiv.style.zIndex = "1000000";
+      }
+    }
+
+    iDivChat.className = "alan_chat_body";
+    const useIconFabHide = usingIconFab() && AlanChat.theme === "default-legacy";
+    iDivChat.innerHTML =
+      '<iframe #iframeId onload="AlanChat._onload()" class="webchat-iframe' +
+      (useIconFabHide ? ' webchat-iframe-hide' : '') +
+      '" src="' + AlanChat.url + '"></iframe>';
+
+    // Header
+    iDivHeader.className = "alan_chat_header";
+
+    if (AlanChat.theme === "default-legacy") {
+      iDivHeaderTitle.innerHTML = AlanChat.title;
+
+      iDivHeader.appendChild(iDivHeaderTitle);
+      iDivHeader.insertAdjacentHTML(
+        "beforeend",
+        '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>',
+      );
+    }
+
+    if (AlanChat.theme === "default-new") {
+      if (getVW() > 480) {
+        iDivContent.style.right = AlanChat.right;
+        iDivContent.style.bottom = `${iDiv.offsetHeight + 16 + parseInt(AlanChat.bottom)}px`;
+      }
+
+      const headerLogo = AlanChat.headerLogoUrl
+        ? `<img src="${AlanChat.headerLogoUrl}" style="max-height: 40px; width: auto;" />`
+        : "";
+
+      iDivHeader.innerHTML = `
+        <div
+          style="width: 100%; height: 70px; box-sizing: border-box; padding-left: 16px; padding-right: 16px; padding-top: 4px; padding-bottom: 4px; position: relative; overflow: hidden; justify-content: center; align-items: center; gap: 10px; display: flex">
+          <div
+            class="AlanChat-headerLogo"
+            style="flex: 1 1 0; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+            ${headerLogo}
+          </div>
+          <div
+            class="AlanChat-backButton"
+            style="display: flex;align-items: center;justify-content: center; width: 36px; height: 36px; left: 18px; top: 50%; transform: translateY(-50%); position: absolute; background: linear-gradient(90deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.60) 100%); border-radius: 40px; backdrop-filter: blur(17.25px)">
+            <div data-color="Default" data-size="LG"
+              style="display: flex;align-items: center;justify-content: center; width: 22px; height: 22px; opacity: 0.60; overflow: hidden">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.79167 0.75L0.866565 5.674C0.788854 5.75037 0.75 5.85046 0.75 5.95056M5.79167 10.8333L0.866565 6.22711C0.788854 6.15074 0.75 6.05065 0.75 5.95056M0.75 5.95056H15.4167"
+                  stroke="#000F2A" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="AlanChat-closeButton"
+            style="align-items: center;justify-content: center; width: 36px; height: 36px; right: 18px; top: 50%; transform: translateY(-50%); position: absolute; background: linear-gradient(90deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.60) 100%); border-radius: 40px; backdrop-filter: blur(17.25px); cursor: pointer;">
+            <div style="display: flex;align-items: center;justify-content: center; width: 22px; height: 22px; opacity: 0.60; overflow: hidden">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L13 13M13 1L1 13" stroke="#000F2A" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    iDivContent.className = "alan_chat_content";
+    iDivContent.appendChild(iDivHeader);
+    iDivContent.appendChild(iDivChat);
+
+    if (useIconFabHide) {
+      iDivContent.classList.add("alan_chat_hide");
+      iDivContent.classList.add("alan_hide_mobile");
+    }
+
+    baseElement.appendChild(iDivContent);
+
+    // Tablet keyboard fix: reposition widget above virtual keyboard.
+    // Uses visualViewport resize on the parent page to detect keyboard.
+    (function tabletKeyboardFix() {
+      if (getVW() <= 480) return;
+      if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
+
+      var vv = window.visualViewport;
+      if (!vv) return;
+
+      var origBottom = iDivContent.style.bottom || "32px";
+      var keyboardOpen = false;
+      var restoreTimer = null;
+      var resizeTimer = null;
+      var lastKbH = 0;
+
+      function moveUp(kbH) {
+        keyboardOpen = true;
+        lastKbH = kbH;
+        clearTimeout(restoreTimer);
+        iDivContent.style.bottom = (kbH + 16) + "px";
+        // Re-check after keyboard animation finishes for more accurate value
+        setTimeout(function () {
+          if (!keyboardOpen || !vv) return;
+          var finalKbH = Math.round(window.innerHeight - vv.height);
+          if (finalKbH > kbH) {
+            iDivContent.style.bottom = (finalKbH + 16) + "px";
+          }
+        }, 400);
+      }
+
+      function restore() {
+        clearTimeout(restoreTimer);
+        restoreTimer = setTimeout(function () {
+          keyboardOpen = false;
+          lastKbH = 0;
+          iDivContent.style.bottom = origBottom;
+        }, 300);
+      }
+
+      vv.addEventListener("resize", function () {
+        // Debounce to let values settle (especially during rotation)
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          var kbH = Math.round(window.innerHeight - vv.height);
+          if (kbH > 100) {
+            moveUp(kbH);
+          } else if (keyboardOpen) {
+            restore();
+          }
+        }, 80);
+      });
+
+      // On orientation change, recalculate if keyboard is still open
+      window.addEventListener("orientationchange", function () {
+        if (!keyboardOpen) return;
+        setTimeout(function () {
+          var kbH = Math.round(window.innerHeight - vv.height);
+          if (kbH > 100) {
+            moveUp(kbH);
+          } else {
+            restore();
+          }
+        }, 500); // Wait for rotation animation to finish
+      });
+
+      // Touch outside chat = keyboard dismissed
+      document.addEventListener("touchstart", function (e) {
+        if (keyboardOpen && !iDivContent.contains(e.target)) {
+          restore();
+        }
+      });
+    })();
+
+    var openButton;
+    if (usingIconFab() && AlanChat.theme === "default-legacy") {
+      openButton = createDiv("alanActionButton", "alan_float_button");
+      baseElement.appendChild(openButton);
+      openButton.insertAdjacentHTML("afterbegin", iconFabSvg);
+      if (positionMode === "right-bottom") {
+        openButton.style.right = positionX;
+        openButton.style.bottom = positionY;
+      } else {
+        openButton.style.left = positionX;
+        openButton.style.top = positionY;
+      }
+      if (!isMobile.any()) openButton.style.zIndex = "1000000";
+
+      if (getVW() > 480) {
+        iDivContent.style.right = AlanChat.right;
+        iDivContent.style.bottom = `${48 + 16 + parseInt(AlanChat.bottom)}px`;
+      }
+
+      openButton.addEventListener("click", function () {
+        const element = document.getElementById("alanChatContent");
+
+        if (element.classList.toggle("alan_chat_hide")) {
+          element.classList.add("alan_hide_mobile");
+        } else {
+          element.classList.remove("alan_hide_mobile");
+        }
+
+        let e = document.getElementsByClassName("webchat-iframe")[0];
+        if (e) {
+          e.classList.toggle("webchat-iframe-hide");
+        }
+      });
+    }
+
+    document
+      .getElementById("alanHeaderButton")
+      .addEventListener("click", function () {
+        if (AlanChat.theme === "default-new") {
+          const chatIframeEl = document.querySelector(".webchat-iframe");
+          const chatContentEl = document.getElementById("alanChatContent");
+          const floatButtonEl = document.querySelector("#alanActionButton");
+          const floatButtonTitleEl = floatButtonEl.querySelector(
+            "#alanFloatButtonTitle",
+          );
+
+          if (AlanChat.isOpen) {
+            document.body.classList.remove("AlanChat-open");
+            chatContentEl.classList.add("alan_chat_hide");
+            chatContentEl.classList.add("alan_hide_mobile");
+            chatIframeEl.classList.add("webchat-iframe-hide");
+            floatButtonEl.classList.remove("is-active");
+            floatButtonTitleEl.innerHTML = AlanChat.title;
+            if (isMobile.any()) unlockViewport();
+          } else {
+            document.body.classList.add("AlanChat-open");
+            chatContentEl.classList.remove("alan_chat_hide");
+            chatContentEl.classList.remove("alan_hide_mobile");
+            chatIframeEl.classList.remove("webchat-iframe-hide");
+            floatButtonEl.classList.add("is-active");
+            floatButtonTitleEl.innerHTML = AlanChat.closeAssistantText;
+            if (isMobile.any()) lockViewport();
+          }
+
+          AlanChat.isOpen = !AlanChat.isOpen;
+          return;
+        }
+
+        var element = document.getElementById("alanChatContent");
+        var isChatHidden = element.classList.toggle("alan_chat_hide");
+
+        if (usingIconFab()) {
+          if (isChatHidden) {
+            element.classList.add("alan_hide_mobile");
+          } else {
+            element.classList.remove("alan_hide_mobile");
+          }
+        }
+
+        let e = document.getElementsByClassName("webchat-iframe")[0];
+        if (e) {
+          e.classList.toggle("webchat-iframe-hide");
+        }
+      });
+
+    // Close button (X) for when buttonHidden is active
+    var closeBtn = document.querySelector(".AlanChat-closeButton");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (AlanChat.isOpen) {
+          var chatIframeEl = document.querySelector(".webchat-iframe");
+          var chatContentEl = document.getElementById("alanChatContent");
+          var floatButtonEl = document.querySelector("#alanActionButton");
+          var floatButtonTitleEl = floatButtonEl.querySelector("#alanFloatButtonTitle");
+
+          document.body.classList.remove("AlanChat-open");
+          chatContentEl.classList.add("alan_chat_hide");
+          chatContentEl.classList.add("alan_hide_mobile");
+          chatIframeEl.classList.add("webchat-iframe-hide");
+          floatButtonEl.classList.remove("is-active");
+          if (floatButtonTitleEl) floatButtonTitleEl.innerHTML = AlanChat.title;
+          AlanChat.isOpen = false;
+          if (isMobile.any()) unlockViewport();
+        }
+      });
+    }
+
+    {
+      var isDragging = false;
+      var initialX, initialY, offsetX, offsetY;
+
+      const element = openButton || document.getElementById("alanActionButton");
+
+      // Touch drag (mobile)
+      if (usingIconFabMobile() && AlanChat.theme === "default-legacy") {
+        element.addEventListener(
+          "touchstart",
+          (e) => {
+            isDragging = true;
+            var touch = e.touches[0];
+            initialX = touch.clientX;
+            initialY = touch.clientY;
+            offsetX = parseFloat(getComputedStyle(element).left);
+            offsetY = parseFloat(getComputedStyle(element).top);
+            element.style.transition = "none";
+            document.body.style.overflow = "hidden";
+            document.body.classList.add("scroll-lock");
+          },
+          { passive: false },
+        );
+
+        document.addEventListener(
+          "touchmove",
+          (e) => {
+            if (!isDragging) return;
+            var touch = e.touches[0];
+            const deltaX = touch.clientX - initialX;
+            const deltaY = touch.clientY - initialY;
+
+            element.style.left = offsetX + deltaX + "px";
+            element.style.top = offsetY + deltaY + "px";
+            e.preventDefault();
+          },
+          { passive: false },
+        );
+
+        document.addEventListener("touchend", () => {
+          isDragging = false;
+          positionX = element.style.left;
+          positionY = element.style.top;
+          positionMode = "left-top";
+          element.style.transition = "";
+          document.body.style.overflow = "auto";
+          document.body.classList.remove("scroll-lock");
+        });
+      }
+
+      // Mouse drag (desktop) — independent of fabType
+      if (AlanChat.draggable) {
+        var hasMoved = false;
+
+        element.addEventListener("mousedown", (e) => {
+          isDragging = true;
+          hasMoved = false;
+          initialX = e.clientX;
+          initialY = e.clientY;
+          const rect = element.getBoundingClientRect();
+          offsetX = rect.left;
+          offsetY = rect.top;
+          element.style.right = "auto";
+          element.style.bottom = "auto";
+          element.style.left = offsetX + "px";
+          element.style.top = offsetY + "px";
+          element.style.transition = "none";
+          e.preventDefault();
+        });
+
+        document.addEventListener("mousemove", (e) => {
+          if (!isDragging) return;
+          const deltaX = e.clientX - initialX;
+          const deltaY = e.clientY - initialY;
+          if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) hasMoved = true;
+          element.style.left = offsetX + deltaX + "px";
+          element.style.top = offsetY + deltaY + "px";
+        });
+
+        document.addEventListener("mouseup", () => {
+          if (!isDragging) return;
+          isDragging = false;
+          // Clamp to 0 to prevent negative values when dragged outside viewport
+          var rect = element.getBoundingClientRect();
+          var newRight = Math.max(0, window.innerWidth - rect.right);
+          var newBottom = Math.max(0, window.innerHeight - rect.bottom);
+          element.style.left = "auto";
+          element.style.top = "auto";
+          element.style.right = newRight + "px";
+          element.style.bottom = newBottom + "px";
+          positionX = element.style.right;
+          positionY = element.style.bottom;
+          positionMode = "right-bottom";
+          element.style.transition = "";
+        });
+
+        document.addEventListener("click", (e) => {
+          if (hasMoved && (e.target === element || element.contains(e.target))) {
+            e.stopImmediatePropagation();
+            hasMoved = false;
+          }
+        }, true);
+      }
+    }
+
+
+  };
+
+  document
+    .getElementById("alanActionButton")
+    .addEventListener("click", function () {
+      if (AlanChat.theme === "default-new") {
+        if (!AlanChat.isLoaded) {
+          AlanChat.loadIframe();
+          AlanChat.isLoaded = true;
+        }
+        const chatIframeEl = document.querySelector(".webchat-iframe");
+        const chatContentEl = document.getElementById("alanChatContent");
+        const floatButtonEl = document.querySelector("#alanActionButton");
+        const floatButtonTitleEl = floatButtonEl.querySelector(
+          "#alanFloatButtonTitle",
+        );
+
+        if (AlanChat.isOpen) {
+          document.body.classList.remove("AlanChat-open");
+          chatContentEl.classList.add("alan_chat_hide");
+          chatContentEl.classList.add("alan_hide_mobile");
+          chatIframeEl.classList.add("webchat-iframe-hide");
+          this.classList.remove("is-active");
+          floatButtonTitleEl.innerHTML = AlanChat.title;
+          if (isMobile.any()) unlockViewport();
+        } else {
+          document.body.classList.add("AlanChat-open");
+          chatContentEl.classList.remove("alan_chat_hide");
+          chatContentEl.classList.remove("alan_hide_mobile");
+          chatIframeEl.classList.remove("webchat-iframe-hide");
+          this.classList.add("is-active");
+          floatButtonTitleEl.innerHTML = AlanChat.closeAssistantText;
+          if (isMobile.any()) lockViewport();
+        }
+
+        AlanChat.isOpen = !AlanChat.isOpen;
+        return;
+      }
+
+      if (AlanChat.runScripts) {
+        document.getElementById("alanActionButton").innerHTML =
+          '<svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><path fill="#fff" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform> </path> <path fill="#fff" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z"> <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform>  </path> <path fill="#fff" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5    L82,35.7z"> <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>  </path></svg>';
+        document.getElementById("alanActionButton").style = "padding: 10px";
+
+        AlanChat.runScripts();
+      } else {
+        AlanChat.loadIframe();
+        if (usingIconFab() && AlanChat.theme === "default-legacy") {
+          const chatContent = document.getElementById("alanChatContent");
+          if (chatContent) {
+            chatContent.classList.remove("alan_chat_hide");
+            chatContent.classList.remove("alan_hide_mobile");
+          }
+          const iframe = document.querySelector(".webchat-iframe");
+          if (iframe) iframe.classList.remove("webchat-iframe-hide");
+        }
+      }
+    });
+
+
+};
+
+//utils
+function customizeOrbAnimation(animation, color) {
+  const animationData =
+    typeof structuredClone === "function"
+      ? structuredClone(animation)
+      : JSON.parse(JSON.stringify(animation));
+
+  const newPrimaryColor = hexToLottieColor(lighten(color, 20));
+  const newHighlightColor = hexToLottieColor(lighten(color, 90));
+
+  animationData.assets[6].layers[6].shapes[0].it[1].c.k =
+    newPrimaryColor;
+  animationData.assets[7].layers[0].shapes[0].it[1].c.k =
+    newPrimaryColor;
+  animationData.assets[9].layers[0].shapes[0].it[1].c.k =
+    newPrimaryColor;
+  animationData.assets[10].layers[0].shapes[0].it[1].c.k =
+    newPrimaryColor;
+
+  animationData.assets[8].layers[0].shapes[0].it[1].c.k =
+    newHighlightColor;
+  animationData.assets[11].layers[0].shapes[0].it[1].c.k =
+    newHighlightColor;
+  animationData.assets[12].layers[0].shapes[0].it[1].c.k =
+    newHighlightColor;
+  animationData.assets[13].layers[0].shapes[0].it[1].c.k =
+    newHighlightColor;
+
+  return animationData;
+};
+
+
+function hexToLottieColor(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!result) {
+    return [0, 0, 0];
+  }
+
+  const r = parseInt(result[1], 16) / 255;
+  const g = parseInt(result[2], 16) / 255;
+  const b = parseInt(result[3], 16) / 255;
+
+  return [r, g, b];
+};
+
+function colorToRgb(color) {
+  if (color.startsWith("#")) {
+    const hex = color.replace("#", "");
+    const fullHex =
+      hex.length === 3
+        ? hex.split("").map((c) => c + c).join("")
+        : hex;
+
+    if (fullHex.length !== 6) return null;
+
+    return [
+      parseInt(fullHex.substring(0, 2), 16),
+      parseInt(fullHex.substring(2, 4), 16),
+      parseInt(fullHex.substring(4, 6), 16),
+    ];
+  }
+
+  const d = document.createElement("div");
+  d.style.color = color;
+  document.body.appendChild(d);
+  const rgbString = window.getComputedStyle(d).color;
+  document.body.removeChild(d);
+
+  const rgbMatch = rgbString.match(/rgb\((\d+), (\d+), (\d+)\)/);
+  if (rgbMatch) {
+    return [
+      parseInt(rgbMatch[1]),
+      parseInt(rgbMatch[2]),
+      parseInt(rgbMatch[3]),
+    ];
+  }
+
+  return null;
+};
+
+function lighten(color, percent) {
+  const rgb = colorToRgb(color);
+  if (!rgb) return color;
+
+  const [r, g, b] = rgb;
+  const amount = percent / 100;
+
+  const newR = Math.min(255, Math.round(r + (255 - r) * amount));
+  const newG = Math.min(255, Math.round(g + (255 - g) * amount));
+  const newB = Math.min(255, Math.round(b + (255 - b) * amount));
+
+  const toHex = (n) => n.toString(16).padStart(2, "0");
+
+  return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+}

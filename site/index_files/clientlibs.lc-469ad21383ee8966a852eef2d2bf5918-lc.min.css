@@ -1,0 +1,42 @@
+p,h2{margin:0}
+.cmp-gff-banner_hero_carrusel-component{position:relative;display:flex;justify-content:center}
+.cmp-gff-banner_hero_carrusel-slider{display:flex;overflow:hidden;width:100%;transition:transform .5s ease}
+.cmp-gff-banner_hero_carrusel-slider-banners{width:100%;height:460px;flex:0 0 100%;transition:all .5s;transition:transform .5s ease;position:relative;overflow:hidden;background-color:var(--sep-color,transparent)}
+.cmp-gff-banner_hero_carrusel-slider-banners-img{position:absolute;bottom:0;left:0;width:100%;height:100%;object-fit:contain;object-position:bottom;z-index:0;pointer-events:none}
+.cmp-gff-banner_hero_carrusel-slider-banners-aux{position:relative;display:flex;flex-direction:column;justify-content:center;height:100%;max-width:1120px;margin:0 auto}
+.cmp-gff-banner_hero_carrusel-slider-banners_tag{padding:5px 25px;background-color:#eff3fb;border-radius:8px;color:#384868;font-size:12px;display:inline-block;margin-bottom:24px;width:fit-content}
+.cmp-gff-banner_hero_carrusel-slider-banners_content{width:640px;color:var(--hero-color-text,#f8fbff)}
+.cmp-gff-banner_hero_carrusel-slider-banners_content h1{margin-bottom:16px}
+.cmp-gff-banner_hero_carrusel-slider-banners_content p{font-size:20px;line-height:27.24px;letter-spacing:-0.5px}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons{display:flex;gap:16px;margin-top:24px}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons a{padding:12px 28px;display:flex;align-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent;text-decoration:none}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons a:nth-child(1){background-color:var(--btn-bg-one);color:var(--color-text-btn-one);border-radius:8px;font-weight:700;border:2px solid var(--color-border-btn-one)}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons a:nth-child(2){background-color:var(--btn-bg-two);color:var(--color-text-btn-two);border:2px solid var(--color-border-btn-two);border-radius:8px;font-weight:700}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons .cmp-gff-banner_hero_carrusel-slider-banners_buttons-button_one:hover{background-color:var(--btn-hover-bg) !important}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons .cmp-gff-banner_hero_carrusel-slider-banners_buttons-button_one:active{background-color:var(--color-active-btn-one) !important}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons .cmp-gff-banner_hero_carrusel-slider-banners_buttons-button_two:hover{background-color:var(--btn-hover-bg-two) !important}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons .cmp-gff-banner_hero_carrusel-slider-banners_buttons-button_two:active{background-color:var(--color-active-btn-two) !important}
+.cmp-gff-banner_hero_carrusel-slider-bullets{display:flex;position:absolute;bottom:8px;left:50%;transform:translate(-50%,-50%);gap:8px;padding:4px;background-color:#006FFD52;border-radius:16px}
+.cmp-gff-banner_hero_carrusel-slider-bullets-button{width:8px;height:8px;background-color:#FFF;border-radius:50%;cursor:pointer;transition:all .5s;opacity:.5}
+.cmp-gff-banner_hero_carrusel-slider-bullets-button-active{width:24px;border-radius:100px;box-shadow:1px 1px 3px 1px #0000002E;opacity:1}
+.cmp-gff-banner_hero_carrusel-slider-arrows{position:absolute;top:46%;display:flex;width:90%;justify-content:space-between}
+.cmp-gff-banner_hero_carrusel-slider-arrows img{cursor:pointer}
+@media(min-width:768px) and (max-width:1024px){.cmp-gff-banner_hero_carrusel-slider-arrows-left,.cmp-gff-banner_hero_carrusel-slider-arrows-right{display:none}
+.cmp-gff-banner_hero_carrusel-slider-banners-img{width:150%;left:auto;right:0;object-position:bottom right}
+.cmp-gff-banner_hero_carrusel-slider-banners{padding-bottom:355px;height:320px !important}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons a:nth-child(1){padding:12px 24px;letter-spacing:-0.5px}
+.cmp-gff-banner_hero_carrusel-slider-banners_tag,.cmp-gff-banner_hero_carrusel-slider-banners_content,.cmp-gff-banner_hero_carrusel-slider-banners_buttons{margin-left:32px}
+.cmp-gff-banner_hero_carrusel-slider-banners_content{width:auto;margin:0;padding:0 32px}
+.cmp-gff-banner_hero_carrusel-slider-banners-aux{margin-top:40px;justify-content:normal}
+}
+@media(max-width:767px){.cmp-gff-banner_hero_carrusel-slider-banners-img{width:140%;left:auto;right:0;object-position:bottom right}
+.cmp-gff-banner_hero_carrusel-slider-arrows-right,.cmp-gff-banner_hero_carrusel-slider-arrows-left{display:none}
+.cmp-gff-banner_hero_carrusel-slider-banners_tag,.cmp-gff-banner_hero_carrusel-slider-banners_content,.cmp-gff-banner_hero_carrusel-slider-banners_buttons{margin-left:16px !important;margin-right:16px !important}
+.cmp-gff-banner_hero_carrusel-slider-banners_content{width:-webkit-fill-available !important}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons a{padding:8px 14px}
+.cmp-gff-banner_hero_carrusel-slider-banners{height:486px !important}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons a:nth-child(1){justify-content:center;width:100%;font-size:14px;text-wrap:nowrap}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons a:nth-child(2){justify-content:center;width:100%;font-size:14px;text-wrap:nowrap}
+.cmp-gff-banner_hero_carrusel-slider-banners-aux{margin-top:24px;justify-content:normal}
+.cmp-gff-banner_hero_carrusel-slider-banners_buttons{margin-top:16px}
+}

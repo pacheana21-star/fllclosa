@@ -1,0 +1,22 @@
+.floating-menu{position:fixed;bottom:56px;right:40px;display:flex;flex-direction:column;align-items:flex-end;z-index:9999}
+.menu-items{display:none;flex-direction:column;gap:32px;margin-bottom:32px;align-items:end}
+.menu-items a{text-decoration:none}
+.menu-item{background-color:white;color:#00429c;border:0;padding:12px 16px;border-radius:100px;display:flex;align-items:center;gap:8px;cursor:pointer;box-shadow:2px 2px 10px rgba(0,0,0,0.2);white-space:nowrap;justify-content:space-between;line-height:24px;letter-spacing:-0.5px;font-weight:600}
+.menu-item:hover{background-color:#ebf4ff}
+.menu-item img{width:32px;height:32px;object-fit:contain}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100vh;display:none;background-color:rgba(0,0,0,0.5);z-index:9998}
+body.menu-active .overlay{display:block}
+.toggle-menu{position:relative;display:flex;align-items:center;justify-content:end}
+.btn-wrapper{width:58px;height:58px;border-radius:50%;border:3px solid transparent;background:linear-gradient(#0058cb,#0058cb) padding-box,linear-gradient(134.93deg,#24b8ef 0,#0058cb 61.19%,#351782 100.12%) border-box;box-shadow:0 6px 12px rgba(0,0,0,0.16),0 12px 16px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s ease-in-out}
+.btn-wrapper.open{background:linear-gradient(#85baff,#85baff) padding-box,linear-gradient(134.93deg,#24b8ef 0,#0058cb 61.19%,#351782 100.12%) border-box}
+.btn-wrapper:hover{transform:translateY(-2px)}
+.btn-wrapper .btn{position:absolute;width:auto;height:auto;border:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;transition:opacity .2s;padding:0}
+.btn .btn-open .img{width:32px;height:42px;object-fit:contain}
+.btn-wrapper .btn-open{background-color:#0058cb;color:#fff;opacity:1}
+.btn-wrapper .btn-close{background-color:#85baff;color:#0058cb;opacity:0;pointer-events:none;right:auto;top:auto}
+.btn-wrapper.open .btn-open{opacity:0;pointer-events:none}
+.btn-wrapper.open .btn-close{opacity:1;pointer-events:auto}
+@media(max-width:767px){.floating-menu{bottom:24px;right:16px}
+.btn-wrapper{width:50px;height:50px}
+.menu-items{gap:24px;margin-bottom:24px}
+}

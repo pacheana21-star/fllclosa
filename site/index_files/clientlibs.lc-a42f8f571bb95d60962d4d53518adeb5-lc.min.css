@@ -1,0 +1,26 @@
+.gff-cards-mas-beneficios__container{max-width:1120px;margin:0 auto}
+.gff-cards-mas-beneficios-title{font-size:28px;font-weight:600;line-height:34px;letter-spacing:-1px;margin-bottom:24px;text-align:left}
+.gff-cards-mas-beneficios-cards{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;width:100%}
+.gff-cards-mas-beneficios-cards-card{flex:0 0 calc(46% - 11.6px);background-color:var(--background-card);border-radius:8px;padding:19.25px;color:inherit;transition:background-color .3s ease,transform .3s ease;width:100%;cursor:pointer}
+.gff-cards-mas-beneficios-cards-card:hover{background-color:rgba(28,32,40,0.08)}
+.gff-cards-mas-beneficios-cards-card.active--card{background-color:rgba(0,111,253,0.32)}
+.gff-cards-mas-beneficios-card-link{display:flex;align-items:center;text-decoration:none}
+.gff-cards-mas-beneficios-card-icon img{width:40px;height:40px;padding-right:20px}
+.gff-cards-mas-beneficios-card-content{flex:1}
+.gff-cards-mas-beneficios-card-title{font-size:18px;font-weight:700;margin:0;line-height:24.5px;letter-spacing:-0.5px;color:var(--color-title)}
+.gff-cards-mas-beneficios-title-center{text-align:center}
+.gff-cards-mas-beneficios-card-description{font-size:14px;font-weight:400;margin:0;line-height:20px;color:var(--color-description)}
+.gff-cards-mas-beneficios-card-description p{margin:0}
+.cmp-gff-cards_beneficios-component-arrows-right img{width:24px;height:24px;margin-top:10px;object-fit:cover}
+.gff-cards-mas-beneficios-buttons{margin:0 auto;margin-top:32px;width:fit-content;display:flex;align-items:center;gap:8px}
+.gff-cards-mas-beneficios-show-more,.gff-cards-mas-beneficios-show-less{display:flex;background:transparent;color:#0058cb;padding:0;border:0;border-bottom:1px solid #00429c;font-weight:600;line-height:24px;letter-spacing:-0.5px;cursor:pointer;transition:color .3s ease,border-color .3s ease}
+.gff-cards-mas-beneficios-buttons img{transition:transform .3s ease}
+.gff-cards-mas-beneficios-buttons img.rotated{transform:rotate(180deg)}
+.gff-cards-beneficiones__hidden{display:none !important}
+@media(max-width:1024px){.gff-cards-mas-beneficios__container{margin:0 32px}
+.gff-cards-mas-beneficios-cards-card{flex:0 0 94%;padding-inline:20px}
+}
+@media(max-width:767px){.gff-cards-mas-beneficios-title{font-size:22px;font-weight:600;line-height:28px;letter-spacing:-1px;margin-bottom:16px;text-align:left}
+.gff-cards-mas-beneficios__container{margin:0 16px}
+.gff-cards-mas-beneficios-cards-card{flex:0 0 94%;padding:8.6px;padding-block:19.3px}
+}

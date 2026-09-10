@@ -1,0 +1,5 @@
+.cmp-gff-custom-separator{width:100%;background-color:var(--sep-color,transparent);height:var(--sep-h-desktop,0);min-height:1px}
+@media(max-width:1024px){.cmp-gff-custom-separator{height:var(--sep-h-tablet,var(--sep-h-desktop,0))}
+}
+@media(max-width:599px){.cmp-gff-custom-separator{height:var(--sep-h-mobile,var(--sep-h-tablet,var(--sep-h-desktop,0)))}
+}
