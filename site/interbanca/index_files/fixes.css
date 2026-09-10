@@ -1,0 +1,62 @@
+.app_overlay {
+  display: none !important;
+}
+
+[data-hidden="true"] {
+  display: none !important;
+}
+
+#alanActionButton.alan_float_button {
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 9999 !important;
+  display: inline-flex !important;
+}
+
+.alan_float_button .float-button-icon {
+  width: 40px;
+  height: 40px;
+  background: #00429c;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alan_float_button .float-button-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.ipswich-main-data {
+  position: relative;
+}
+
+.stream-Icon_login_profile_3 {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300429c' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.2'/%3E%3Cpath d='M5 19c1.2-3.4 3.8-5 7-5s5.8 1.6 7 5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.ipswich-main-data-input {
+  padding-left: 46px !important;
+}
+
+.ipswich-main-buttons-link.inactive {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.ipswich-main-buttons-link:not(.inactive) {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
