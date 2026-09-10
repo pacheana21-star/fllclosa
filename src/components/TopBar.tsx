@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { IconChevron } from './Icons'
+import { dam } from '../assets'
 
 export function TopBar() {
   return (
@@ -9,14 +9,15 @@ export function TopBar() {
           <NavLink to="/" end className={({ isActive }) => (isActive ? 'is-active' : '')}>
             Personas
           </NavLink>
-          <NavLink to="/empresas">
-            Empresas <IconChevron size={14} />
+          <NavLink to="/empresas" className="topbar__drop">
+            Empresas
+            <img src={dam('iconos/header/arrow-preheader.svg')} alt="" />
           </NavLink>
         </nav>
         <button className="topbar__country" type="button">
-          <span className="flag" aria-hidden />
+          <img src={dam('iconos/header/icon-flag-honduras.svg')} alt="" />
           Ficohsa Banco Honduras
-          <IconChevron size={14} />
+          <img src={dam('iconos/header/arrow-preheader.svg')} alt="" />
         </button>
       </div>
     </div>

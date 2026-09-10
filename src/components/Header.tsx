@@ -1,14 +1,8 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { dam } from '../assets'
 import { channelsMenu, productsMenu } from '../data'
-import {
-  IconChevron,
-  IconClose,
-  IconLock,
-  IconMenu,
-  IconSearch,
-  IconUser,
-} from './Icons'
+import { IconClose, IconMenu } from './Icons'
 import { Logo } from './Logo'
 
 type HeaderProps = {
@@ -31,17 +25,21 @@ export function Header({ onSearch }: HeaderProps) {
             onMouseLeave={() => setOpen(null)}
           >
             <button className="mega__btn" type="button" aria-expanded={open === 'productos'}>
-              Productos y servicios <IconChevron size={14} />
+              Productos y servicios
+              <img src={dam('iconos/header/arrow-nav.svg')} alt="" />
             </button>
             {open === 'productos' && (
               <div className="mega__panel">
                 {productsMenu.map((col) => (
                   <div key={col.title}>
-                    <h3>{col.title}</h3>
+                    <h3>
+                      <img src={col.icon} alt="" />
+                      {col.title}
+                    </h3>
                     <ul>
                       {col.items.map((item) => (
                         <li key={item}>
-                          <Link to={`/${col.title.toLowerCase().split(' ')[0]}`} onClick={() => setOpen(null)}>
+                          <Link to={col.to} onClick={() => setOpen(null)}>
                             {item}
                           </Link>
                         </li>
@@ -59,14 +57,18 @@ export function Header({ onSearch }: HeaderProps) {
             onMouseLeave={() => setOpen(null)}
           >
             <button className="mega__btn" type="button" aria-expanded={open === 'canales'}>
-              Canales de atención <IconChevron size={14} />
+              Canales de atención
+              <img src={dam('iconos/header/arrow-nav.svg')} alt="" />
             </button>
             {open === 'canales' && (
               <div className="mega__panel mega__panel--channels">
                 {channelsMenu.map((item) => (
                   <Link key={item.title} to="/canales" onClick={() => setOpen(null)}>
-                    <strong>{item.title}</strong>
-                    <span>{item.desc}</span>
+                    <img src={item.icon} alt="" />
+                    <span>
+                      <strong>{item.title}</strong>
+                      {item.desc}
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -76,13 +78,15 @@ export function Header({ onSearch }: HeaderProps) {
 
         <div className="header__actions">
           <NavLink to="/hazte-cliente" className="btn btn--ghost">
-            <IconUser /> Hazte cliente
+            <img src={dam('iconos/header/icon-hazte-cliente.svg')} alt="" />
+            Hazte cliente
           </NavLink>
           <NavLink to="/interbanca" className="btn btn--dark">
-            <IconLock /> Interbanca
+            <img src={dam('iconos/header/lock.svg')} alt="" />
+            Interbanca
           </NavLink>
           <button className="icon-btn" type="button" aria-label="Buscar" onClick={onSearch}>
-            <IconSearch />
+            <img src={dam('iconos/header/search.svg')} alt="" />
           </button>
           <button
             className="icon-btn header__burger"

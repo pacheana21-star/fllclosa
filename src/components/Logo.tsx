@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
+import { dam } from '../assets'
 
-export function Logo({ light = false }: { light?: boolean }) {
+export function Logo() {
   return (
-    <Link to="/" className={`logo ${light ? 'logo--light' : ''}`} aria-label="Ir a la página principal">
-      <span className="logo__mark" aria-hidden>
-        F
-      </span>
-      <span className="logo__word">Ficohsa</span>
+    <Link to="/" className="logo" aria-label="Ir a la página principal">
+      <img src={dam('iconos/header/logo-ficohsa.svg')} alt="Ficohsa" />
     </Link>
   )
 }
