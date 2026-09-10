@@ -8,6 +8,65 @@
 
 .app_overlay {
   display: none !important;
+  position: fixed !important;
+  inset: 0;
+  z-index: 100000 !important;
+  background: #0058cb !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.app_overlay.is-visible {
+  display: block !important;
+}
+
+.app_overlay .mesina-loader {
+  position: absolute;
+  inset: 0;
+  height: 250px;
+  margin: auto;
+}
+
+.app_overlay .spinner {
+  margin: 25px auto 20px;
+  width: 78px;
+  text-align: center;
+}
+
+.app_overlay .spinner > div {
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+  background-color: #fff !important;
+  border-radius: 50%;
+  display: inline-block;
+  animation: flicosa-dots 1.2s ease-in-out infinite both;
+}
+
+.app_overlay .spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.app_overlay .spinner .bounce2 {
+  animation-delay: -0.16s;
+}
+
+.app_overlay .mesina-welcome-title,
+.app_overlay .mesina-welcome-subtitle1 {
+  color: #fff !important;
+}
+
+@keyframes flicosa-dots {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.45);
+    opacity: 0.45;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 [data-hidden="true"] {
@@ -40,6 +99,7 @@
   height: 40px;
 }
 
+.step:not(.ipswich-step-visible),
 .header-changePasswordMode {
   display: none !important;
 }
