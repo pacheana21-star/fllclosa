@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Ficohsa</title>
+  <link rel="icon" href="./isotipo-ficohsa-blanco.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./login.css" />
+</head>
+<body>
+  <div class="loader" id="loader">
+    <img class="loader__mark" src="./logo_positivo_login.png" alt="Ficohsa" />
+    <div class="spinner"><span></span><span></span><span></span></div>
+    <p class="loader__title">Bienvenido</p>
+    <p class="loader__sub">Favor espera un momento...</p>
+  </div>
+
+  <main class="login" id="login" hidden>
+    <section class="login__brand">
+      <img src="./logo_positivo_login.png" alt="" class="login__isotipo" />
+      <img src="./logo-ficohsa.svg" alt="Ficohsa" class="login__logo-light" />
+      <div>
+        <p class="login__kicker">INTERBANCA</p>
+        <h1>Ingrese a la nueva Interbanca</h1>
+        <p>Realiza tus transacciones bancarias en línea de forma fácil, rápida y segura.</p>
+      </div>
+      <p class="login__version">versión 12.42.0</p>
+    </section>
+
+    <section class="login__panel">
+      <a class="login__back" href="../index.html">← Volver al inicio</a>
+      <div class="login__card">
+        <img src="./logo-ficohsa.svg" alt="Ficohsa" class="login__logo" />
+        <h2>Iniciar sesión</h2>
+        <p class="login__lead">Ingresa tu usuario y contraseña para continuar</p>
+
+        <form id="login-form" autocomplete="off">
+          <label>
+            Usuario
+            <input name="usuario" type="password" inputmode="text" placeholder="Usuario" required />
+          </label>
+          <label>
+            Contraseña
+            <input name="clave" type="password" placeholder="Contraseña" required />
+          </label>
+          <button type="submit">Ingresar</button>
+        </form>
+
+        <a class="login__forgot" href="#recuperar">¿Olvidaste tu usuario o contraseña?</a>
+
+        <div class="login__first">
+          <strong>¿Primera vez en Interbanca?</strong>
+          <p>Usa el usuario y la clave que recibiste por correo y personaliza tu acceso.</p>
+        </div>
+
+        <p class="login__note" id="note" hidden></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const loader = document.getElementById('loader')
+    const login = document.getElementById('login')
+    const note = document.getElementById('note')
+
+    window.setTimeout(() => {
+      loader.hidden = true
+      login.hidden = false
+    }, 1400)
+
+    document.getElementById('login-form').addEventListener('submit', (event) => {
+      event.preventDefault()
+      event.target.reset()
+      note.hidden = false
+      note.textContent = 'Sitio de demostración. No se envían ni se guardan credenciales.'
+    })
+  </script>
+</body>
+</html>

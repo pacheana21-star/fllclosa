@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "serve site -l 5173",
     "build": "node scripts/copy-site.mjs",
-    "start": "serve -s dist -l tcp://0.0.0.0:$PORT",
+    "start": "serve dist -l tcp://0.0.0.0:$PORT",
     "lint": "oxlint",
     "preview": "serve dist -l 4173"
   },
