@@ -1,3 +1,11 @@
+:root {
+  --alan-color-accent: #34589c;
+  --alan-fab-bg-start: #e8f0fe;
+  --alan-fab-bg-end: white;
+  --alan-fab-outline: rgba(60, 106, 255, 0.12);
+  --alan-fab-text-color: #004edd;
+}
+
 .app_overlay {
   display: none !important;
 }
@@ -8,8 +16,8 @@
 
 #alanActionButton.alan_float_button {
   position: fixed !important;
-  right: 24px !important;
-  bottom: 24px !important;
+  right: 50px !important;
+  bottom: 50px !important;
   left: auto !important;
   top: auto !important;
   z-index: 9999 !important;
@@ -32,22 +40,26 @@
   height: 40px;
 }
 
-.ipswich-main-data {
-  position: relative;
+.header-changePasswordMode {
+  display: none !important;
 }
 
-.stream-Icon_login_profile_3 {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  width: 22px;
-  height: 22px;
-  margin-top: -11px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300429c' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.2'/%3E%3Cpath d='M5 19c1.2-3.4 3.8-5 7-5s5.8 1.6 7 5'/%3E%3C/svg%3E") center / contain no-repeat;
+.ipswich-main-data > .stream-Icon_login_profile_3 {
+  display: inline-block !important;
+  position: static;
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+  margin-top: 4px;
+  vertical-align: top;
+  font-size: 0 !important;
+  color: #0058cb;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230058cb' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.4'/%3E%3Cpath d='M4.8 19.2c1.3-3.6 4-5.2 7.2-5.2s5.9 1.6 7.2 5.2'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
 }
 
-.ipswich-main-data-input {
-  padding-left: 46px !important;
+.stream-Icon_login_profile_3::before {
+  content: none !important;
+  display: none !important;
 }
 
 .ipswich-main-buttons-link.inactive {
